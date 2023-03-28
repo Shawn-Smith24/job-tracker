@@ -1,0 +1,14 @@
+[
+	{
+		"companyName": "Apple",
+		"role": "Frontend Engineer"
+	},
+	{
+		"companyName": "Google",
+		"role": "Backend Engineer"
+	},
+	{
+		"companyName": "Netflix",
+		"role": "Full-Stack Engineer"
+	}
+]
