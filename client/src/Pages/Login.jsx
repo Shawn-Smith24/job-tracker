@@ -4,7 +4,7 @@ const Login = () => {
 	return (
 		<>
 			<div className=" w-full h-full p-8 relative border text-info">
-				<div className="items-center justify-center flex flex-col h-[500px] p-12 shadow-md absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 rounded-lg">
+				<div className="items-center justify-center flex flex-col h-[500px] p-12 shadow-xl absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 rounded-lg">
 					<h1 className="font-display w-full text-6xl text-center pb-12 text-accent">
 						Login
 					</h1>
@@ -19,7 +19,10 @@ const Login = () => {
 						type="text"
 						placeholder="Enter password"
 					/>
-					<button className="w-full border border-black rounded-lg p-4 my-2 bg-primary">
+					<button
+						className="
+                        w-full border border-info rounded-lg p-4 my-2 bg-primary transition-colors
+                        hover:bg-accent hover:border-accent hover:text-primary">
 						Sign In
 					</button>
 					<p className="w-full my-2">
