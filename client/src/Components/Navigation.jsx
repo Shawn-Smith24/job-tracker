@@ -9,10 +9,10 @@ const Navigation = () => {
 		console.log("searching...");
 	}
 	return (
-		<div className="relative h-16 flex flex-row justify-center shadow-lg items-center">
+		<div className="relative h-16 flex flex-row justify-center items-center">
 			<input
 				type="text"
-				className="w-[300px] h-4/5 rounded-3xl bg-info text-primary px-4"
+				className="w-[300px] h-3/5 rounded-3xl bg-info text-primary px-4"
 			/>
 			<Search
 				color="#F0F0F0"

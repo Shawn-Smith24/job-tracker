@@ -6,7 +6,7 @@ export default function List({ offer }) {
 		console.log(`showing Job Details for ${e.target}`);
 	}
 	return (
-		<ul className="divide-y divide-gray-200">
+		<ul className="divide-y divide-secondary">
 			{jobs.map((job, id) => (
 				<li key={id} className="flex py-4">
 					<div
