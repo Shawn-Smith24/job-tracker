@@ -12,7 +12,7 @@ export default function Example() {
 					<div
 						className="ml-3 cursor-pointer"
 						onClick={(e) => showJobDetails(e)}>
-						<p className="text-sm font-medium text-gray-900">
+						<p className="font-medium text-info text-lg font-display">
 							{companies[id].companyName}
 						</p>
 						<p className="text-sm text-gray-500">{job.role}</p>
