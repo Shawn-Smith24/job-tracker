@@ -3,9 +3,11 @@ import React from "react";
 const Login = () => {
 	return (
 		<>
-			<div className="bg-gray-300 w-full h-full p-8 relative border border-red-500">
-				<div className="items-center justify-center flex flex-col h-[500px] p-12 bg-orange-300 absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 rounded-lg">
-					<h1 className="w-full text-4xl text-center pb-12">Login</h1>
+			<div className=" w-full h-full p-8 relative border ">
+				<div className="items-center justify-center flex flex-col h-[500px] p-12 shadow-md absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 rounded-lg">
+					<h1 className="w-full text-4xl text-center pb-12 text-accent">
+						Login
+					</h1>
 					<p className="w-full text-center">login_description</p>
 					<input
 						type="text"
@@ -17,7 +19,7 @@ const Login = () => {
 						type="text"
 						placeholder="Enter password"
 					/>
-					<button className="w-full border border-black rounded-lg p-4 my-2">
+					<button className="w-full border border-black rounded-lg p-4 my-2 bg-primary">
 						Sign In
 					</button>
 					<p className="w-full my-2">

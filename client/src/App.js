@@ -4,7 +4,7 @@ import Landing from "./Pages/Landing";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 function App() {
 	return (
-		<div className="h-screen w-full fixed">
+		<div className="h-screen w-full fixed bg-primary">
 			<Router>
 				<Routes>
 					<Route path="/landing" element={<Landing />}></Route>
