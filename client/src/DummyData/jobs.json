@@ -1,14 +1,26 @@
 [
 	{
-		"companyName": "Apple",
-		"role": "Frontend Engineer"
+		"jobId": 1,
+		"role": "Frontend Engineer",
+		"location": "Atlanta, GA",
+		"salary": 80000,
+		"companyId": "1",
+		"expLevel": 1
 	},
 	{
-		"companyName": "Google",
-		"role": "Backend Engineer"
+		"jobId": 2,
+		"role": "Backend Engineer",
+		"location": "New York, NY",
+		"salary": 60000,
+		"companyId": "2",
+		"expLevel": 0
 	},
 	{
-		"companyName": "Netflix",
-		"role": "Full-Stack Engineer"
+		"jobId": 3,
+		"role": "Full-Stack Engineer",
+		"location": "Boston, MA",
+		"salary": 120000,
+		"companyId": "3",
+		"expLevel": 2
 	}
 ]
