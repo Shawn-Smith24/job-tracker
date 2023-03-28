@@ -44,20 +44,27 @@ const SignIn = () => {
 						</h1>
 						<p className="w-full text-center">login_description</p>
 						<input
+							className="text-primary w-full p-2 rounded-md my-2"
 							type="text"
-							className="w-full rounded-md p-2 my-2"
-							placeholder="Enter email"
+							placeholder="Enter Your Name"
 						/>
 						<input
-							className="w-full p-2 rounded-md my-2"
+							type="text"
+							className="text-primary w-full rounded-md p-2 my-2"
+							placeholder="Enter email"
+						/>
+
+						<input
+							className="text-primary w-full p-2 rounded-md my-2"
 							type="text"
 							placeholder="Enter password"
 						/>
 						<input
-							className="w-full p-2 rounded-md my-2"
+							className="text-primary w-full p-2 rounded-md my-2"
 							type="text"
 							placeholder="Enter password again ..."
 						/>
+
 						<button
 							className="
                         w-full border border-info rounded-lg p-4 my-2 bg-primary transition-colors
