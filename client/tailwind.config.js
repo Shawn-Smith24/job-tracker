@@ -6,8 +6,11 @@ module.exports = {
 			colors: {
 				primary: "#273248",
 				secondary: "#69758C ",
+				info: "#F0F0F0",
 				accent: "#e88060",
-				info: "#D46915",
+			},
+			fontFamily: {
+				display: ["Yeseva One", "cursive"],
 			},
 		},
 	},
