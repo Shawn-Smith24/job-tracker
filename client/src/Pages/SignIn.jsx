@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 const SignIn = () => {
 	const [isSignIn, setIsSignIn] = useState(true);
 	function toggleSignIn() {
@@ -24,12 +25,13 @@ const SignIn = () => {
 							type="text"
 							placeholder="Enter password"
 						/>
-						<button
+						<Link
+							to="/dashboard"
 							className="
-                        w-full border border-info rounded-lg p-4 my-2 bg-primary transition-colors
-                        hover:bg-accent hover:border-accent hover:text-primary">
+                        	cursor-pointer text-center w-full border border-info rounded-lg p-4 my-2 bg-primary transition-colors
+                        	hover:bg-accent hover:border-accent hover:text-primary">
 							Sign In
-						</button>
+						</Link>
 						<p className="w-full my-2 text-center">
 							Don't have an account yet? Sign Up{" "}
 							<strong className="cursor-pointer" onClick={toggleSignIn}>
