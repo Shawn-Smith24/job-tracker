@@ -7,7 +7,7 @@ const SignIn = () => {
 	}
 	return (
 		<>
-			<div className=" w-full h-full p-8 relative border text-info">
+			<div className=" w-full h-full p-8 relative  text-info">
 				{isSignIn ? (
 					<div className="items-center justify-center flex flex-col w-[500px] h-[500px] p-12 shadow-xl absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 rounded-lg">
 						<h1 className="font-display w-full text-6xl text-center pb-12 text-accent">

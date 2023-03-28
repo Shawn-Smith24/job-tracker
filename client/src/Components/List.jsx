@@ -1,8 +1,8 @@
 import jobs from "../DummyData/jobs.json";
 import companies from "../DummyData/companies.json";
-export default function Example() {
+export default function List({ offer }) {
+	// each list item needs to have it's own list id
 	function showJobDetails(e) {
-		// show job details logic goes here
 		console.log(`showing Job Details for ${e.target}`);
 	}
 	return (
