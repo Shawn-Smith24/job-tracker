@@ -27,7 +27,19 @@ class User(db.Model, SerializerMixin):
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())
 
     applied = db.relationship('Application', backref='user')
+    
+    @validates('username')
+    def validates_username(self,key,username):
+        if not username or len(username) > 5 and len(username) < 50:
+            raise AssertionError('Username must be between 5 and 50 characters.')
+        return username
 
+    @validates('password')
+    def validates_password(self,key,password):
+        if not password or len(password) > 10 and len(password) < 50:
+            raise AssertionError('Password must be between 5 and 50 characters.')
+        return password
+    
 
 class Application(db.Model, SerializerMixin):
 
@@ -65,6 +77,7 @@ class Job(db.Model, SerializerMixin):
     # applications = db.relationship('Application', backref='job')
     company = db.relationship('Company', backref='job')
 
+    
 
 class Company(db.Model, SerializerMixin):
 

@@ -17,13 +17,9 @@ api = Api(app)
 
 @app.route('/')
 def home():
-    return ''
+    return 'Home'
 
-# user1= User(user_id= 1, username='test', password='test')
-# job1= Job(job_id = 1, job_name='test', location='test', salary=100, experience_level=1)
-# job2= Job(job_id = 2, job_name='test2', location='test2', salary=200, experience_level=2)
-# company= Company(company_id=1, company_name='test', location='test', industry='test')
-# application = Application(application_id=1, status=1, user_id=1, job_id=1)
+
 
 
 
