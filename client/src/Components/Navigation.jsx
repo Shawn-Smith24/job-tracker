@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Navigation = () => {
 	function search() {
-		// search logic goes here
+		// [ ] implement search logic here
 		console.log("searching...");
 	}
 	return (
@@ -21,6 +21,7 @@ const Navigation = () => {
 				onClick={search}
 			/>
 			<div className="cursor-pointer absolute right-0 w-fit pr-6 text-info top-1/2 -translate-y-1/2 ">
+				{/* [ ] implement a session logout here */}
 				<Link to="/signin">
 					<Logout
 						size="2em"

@@ -1,10 +1,11 @@
 import React from "react";
-import { useState } from "react";
+// import { useState } from "react";
 
 const ListItem = ({ job, company }) => {
-	const [applicationId, setApplicationId] = useState(null);
+	// const [applicationId, setApplicationId] = useState(null);
 
 	function showJobDetails() {
+		// [ ] implement the functionality of filling job detail component wiht contents associated with the List Item
 		console.log("showJobDetails");
 	}
 
