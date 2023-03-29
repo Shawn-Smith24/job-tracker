@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { Link } from "react-router-dom";
 const SignIn = () => {
 	const [isSignIn, setIsSignIn] = useState(true);
 	const [formData, setFormData] = useState({
@@ -50,11 +50,12 @@ const SignIn = () => {
 							value={formData.password}
 							onChange={handleChange}
 						/>
-						<button
-							type="submit"
+						<Link
+							to="/dashboard"
+							// type="submit"
 							className="cursor-pointer text-center w-full border border-info rounded-lg p-4 my-2 bg-primary transition-colors hover:bg-accent hover:border-accent hover:text-primary">
 							Sign In
-						</button>
+						</Link>
 						<p className="w-full my-2 text-center">
 							Don't have an account yet? Sign Up{" "}
 							<strong className="cursor-pointer" onClick={toggleSignIn}>
@@ -104,13 +105,12 @@ const SignIn = () => {
 							onChange={handleChange}
 						/>
 
-						<button
-							type="submit"
-							className="
-         					w-full border border-info rounded-lg p-4 my-2 bg-primary transition-colors
-          					hover:bg-accent hover:border-accent hover:text-primary">
+						<Link
+							to="/dashboard"
+							// type="submit"
+							className="cursor-pointer text-center w-full border border-info rounded-lg p-4 my-2 bg-primary transition-colors hover:bg-accent hover:border-accent hover:text-primary">
 							Sign Up
-						</button>
+						</Link>
 						<p className="w-full my-2 text-center">
 							Already Have An Account? Sign In{" "}
 							<strong className="cursor-pointer" onClick={toggleSignIn}>
