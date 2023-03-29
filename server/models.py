@@ -1,4 +1,15 @@
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import MetaData
+from sqlalchemy.orm import validates
+from sqlalchemy.ext.associationproxy import association_proxy
 from sqlalchemy_serializer import SerializerMixin
+
+metadata = MetaData(naming_convention={
+    "fk": "fk_%(table_name)s_%(column_0_name)s_%(referred_table_name)s",
+})
+
+db = SQLAlchemy(metadata=metadata)
+
 
 from config import db
 
@@ -6,9 +17,8 @@ from config import db
 
 class User(db.Model, SerializerMixin):
     
-    serialize_rules = ('-')
     
-    __tablename__ = 'user'
+    __tablename__ = 'users'
     
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String)
@@ -16,26 +26,26 @@ class User(db.Model, SerializerMixin):
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())    
     
-    applications = db.relationship('Applications', backref='user')
+    # applications = db.relationship('Applications', backref='user')
     
 class Application(db.Model, SerializerMixin):
     
-    __tablename__ = 'application'
+    __tablename__ = 'applications'
     
     id = db.Column(db.Integer, primary_key=True)
     status= db.Column(db.Integer)
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, onupdate=db.func.now()) 
     
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    job_id = db.Column(db.Integer, db.ForeignKey('job.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    job_id = db.Column(db.Integer, db.ForeignKey('jobs.id'))
     
-    user = db.relationship('User', backref=db.backref('applications'))
-    job= db.relationship('Job', backref=db.backref('applications'))
+    user = db.relationship('Users', backref=('applications'))
+    job= db.relationship('Jobs', backref=('applications'))
     
 class Job(db.Model, SerializerMixin):
     
-    __tablename__ = 'job'
+    __tablename__ = 'jobs'
     
     
     id = db.Column(db.Integer, primary_key=True)
@@ -46,16 +56,16 @@ class Job(db.Model, SerializerMixin):
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, onupdate=db.func.now()) 
     
-    company_id = db.Column(db.Integer, db.ForeignKey('company.id'))
+    company_id = db.Column(db.Integer, db.ForeignKey('companies.id'))
    
    #relationships 
-    applications = db.relationship('Application', backref='job')
-    company= db.relationship('Company', backref='jobs')
+    applications = db.relationship('Applications', backref='job')
+    company= db.relationship('Companies', backref='jobs')
     
     
 class Company(db.Model, SerializerMixin):
     
-    __tablename__ = 'company'
+    __tablename__ = 'companies'
     
     
     id = db.Column(db.Integer, primary_key=True)
