@@ -23,6 +23,7 @@ const SignIn = () => {
 		// Handle form submission logic here
 	};
 
+	console.log(process.env.REACT_APP_MOCK_API_URL);
 	return (
 		<>
 			<div className="w-full h-full p-8 relative text-info">
