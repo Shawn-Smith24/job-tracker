@@ -29,7 +29,7 @@ const SignIn = () => {
 				{isSignIn ? (
 					<form
 						onSubmit={handleSubmit}
-						className="items-center justify-center flex flex-col w-[500px] h-[500px] p-12 shadow-xl absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 rounded-lg">
+						className="items-center justify-center flex flex-col w-[500px] h-[550px] p-12 shadow-xl absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 rounded-lg">
 						<h1 className="font-display w-full text-6xl text-center pb-12 text-accent">
 							Sign In
 						</h1>
@@ -60,7 +60,9 @@ const SignIn = () => {
 						</Link>
 						<p className="w-full my-2 text-center">
 							Don't have an account yet? Sign Up{" "}
-							<strong className="cursor-pointer" onClick={toggleSignIn}>
+							<strong
+								className="cursor-pointer underline"
+								onClick={toggleSignIn}>
 								here
 							</strong>
 						</p>
@@ -68,7 +70,7 @@ const SignIn = () => {
 				) : (
 					<form
 						onSubmit={handleSubmit}
-						className="items-center justify-center flex flex-col w-[500px] h-[500px] p-12 shadow-xl absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 rounded-lg">
+						className="items-center justify-center flex flex-col w-[500px] h-[550px] p-12 shadow-xl absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 rounded-lg">
 						<h1 className="font-display w-full text-6xl text-center pb-12 text-accent">
 							Sign Up
 						</h1>
@@ -117,7 +119,9 @@ const SignIn = () => {
 						</Link>
 						<p className="w-full my-2 text-center">
 							Already Have An Account? Sign In{" "}
-							<strong className="cursor-pointer" onClick={toggleSignIn}>
+							<strong
+								className="cursor-pointer underline"
+								onClick={toggleSignIn}>
 								here
 							</strong>
 						</p>
