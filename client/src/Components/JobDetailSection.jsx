@@ -3,10 +3,15 @@ import companies from "../DummyData/companies.json";
 import jobs from "../DummyData/jobs.json";
 import Timeline from "./Timeline";
 import { FiEdit as Edit } from "react-icons/fi";
+import { useContext } from "react";
+import ModalContext from "./ModalContext";
 const JobDetailSection = () => {
+	const { setShowModal } = useContext(ModalContext);
+
 	function editJobDetail() {
 		// [ ] implement job detail editing
 		console.log("Edit Job Detail");
+		setShowModal(true);
 	}
 	return (
 		<div className="relative w-full text-info p-4 bg-primary">
@@ -15,6 +20,7 @@ const JobDetailSection = () => {
 	);
 	function applicationCard() {
 		const experience = ["Apprentice", "Jr", "Mid-Level", "Sr"];
+
 		return (
 			<div
 				className="
