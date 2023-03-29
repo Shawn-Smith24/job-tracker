@@ -1,7 +1,7 @@
 import jobs from "../DummyData/jobs.json";
-import company from "../DummyData/companies.json";
+import companies from "../DummyData/companies.json";
 import ListItem from "./ListItem";
-export default function List({ companies, jo }) {
+export default function List() {
 	console.log("list component", companies);
 	return (
 		<ul className="">

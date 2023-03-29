@@ -1,17 +1,17 @@
 [
 	{
-		"companyId": 1,
-		"companyName": "Apple",
-		"companyBio": "Apple Inc. (Apple) designs, manufactures and markets smartphones, personal computers, tablets, wearables and accessories and sells a range of related services"
+		"company_id": 1,
+		"company_name": "Apple",
+		"company_bio": "Apple Inc. (Apple) designs, manufactures and markets smartphones, personal computers, tablets, wearables and accessories and sells a range of related services"
 	},
 	{
-		"companyId": 2,
-		"companyName": "Google",
-		"companyBio": "Google LLC (Google), a subsidiary of Alphabet Inc, is a provider of search and advertising services on the internet. The company focuses on various business areas such as advertising, search, platforms and operating systems, and enterprise and hardware products."
+		"company_id": 2,
+		"company_name": "Google",
+		"company_bio": "Google LLC (Google), a subsidiary of Alphabet Inc, is a provider of search and advertising services on the internet. The company focuses on various business areas such as advertising, search, platforms and operating systems, and enterprise and hardware products."
 	},
 	{
-		"companyId": 3,
-		"companyName": "Uber",
-		"companyBio": "Uber Technologies matches consumers looking for rides, food delivery, or shipping with people selling those services. Uber's largest source of revenue is its delivery business, but its rides business generates the most profit."
+		"company_id": 3,
+		"company_name": "Uber",
+		"company_bio": "Uber Technologies matches consumers looking for rides, food delivery, or shipping with people selling those services. Uber's largest source of revenue is its delivery business, but its rides business generates the most profit."
 	}
 ]
