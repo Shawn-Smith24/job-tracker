@@ -8,7 +8,7 @@ const DonutChart = ({ colors }) => {
 	const accentVariations = generateColorVariations(colors.accent);
 
 	const data = {
-		labels: ["Label 1", "Label 2", "Label 3"],
+		labels: ["Applied", "Interview Phase", "Offer Given"],
 		datasets: [
 			{
 				label: "# of Votes",

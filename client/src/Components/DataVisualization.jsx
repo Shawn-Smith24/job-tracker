@@ -1,7 +1,7 @@
 import React from "react";
 import BarChart from "./BarChart";
 import DonutChart from "./DonutChart";
-
+import AverageSalary from "./AverageSalary";
 const DataVisualization = () => {
 	const colors = {
 		primary: "#273248",
@@ -14,8 +14,9 @@ const DataVisualization = () => {
 			<div className="w-full h-1/2 flex flex-row justify-center items-center">
 				<BarChart colors={colors} />
 			</div>
-			<div className="h-1/2 w-full">
+			<div className="h-1/2 w-full flex flex-row">
 				<DonutChart colors={colors} />
+				<AverageSalary />
 			</div>
 		</div>
 	);
