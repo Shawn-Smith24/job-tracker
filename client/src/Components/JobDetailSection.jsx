@@ -12,8 +12,9 @@ const JobDetailSection = ({ companies, jobs, displayedApp }) => {
 		setShowModal(true);
 	}
 	return (
-		<div className="relative w-full text-info p-4 bg-primary">
+		<div className="relative w-full text-info py-4 px-12 bg-primary flex flex-row justify-center items-center">
 			{applicationCard()}
+			<div className="border w-full h-[600px] ml-6">asdf</div>
 		</div>
 	);
 	function applicationCard() {
@@ -23,7 +24,7 @@ const JobDetailSection = ({ companies, jobs, displayedApp }) => {
 		return (
 			<div
 				className="
-				absolute w-4/5 max-w-[650px] full h-[600px] p-8 left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 bg-primary rounded-xl border border-secondary shadow-lg
+				max-w-[650px] w-full h-[600px] p-8 bg-primary rounded-xl border border-secondary shadow-lg
 				">
 				<div className="relative">
 					<Edit
