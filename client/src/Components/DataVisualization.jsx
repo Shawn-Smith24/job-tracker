@@ -18,9 +18,10 @@ ChartJS.register(
 	Tooltip,
 	Legend
 );
+
 const colors = {
 	primary: "#273248",
-	secondary: "#69758C ",
+	secondary: "#69758C",
 	info: "#F0F0F0",
 	accent: "#e88060",
 };
@@ -51,18 +52,35 @@ const DataVisualization = () => {
 		indexAxis: "x",
 		plugins: {
 			legend: {
-				position: "right",
+				display: false,
 			},
 			title: {
 				display: true,
-				text: "Vertical Bar Chart",
+				text: "Experience Level",
+				color: `${colors.info}`,
 			},
 		},
 		scales: {
+			x: {
+				ticks: {
+					color: `${colors.info}`,
+				},
+				title: {
+					display: true,
+					text: "Experience Level",
+					color: `${colors.info}`,
+				},
+			},
 			y: {
 				beginAtZero: true,
 				ticks: {
 					stepSize: 1,
+					color: `${colors.info}`,
+				},
+				title: {
+					display: true,
+					text: "Application Quantity",
+					color: `${colors.info}`,
 				},
 			},
 		},
