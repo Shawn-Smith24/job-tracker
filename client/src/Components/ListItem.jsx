@@ -23,7 +23,7 @@ const ListItem = ({ job, company }) => {
 			</svg>
 			<div className="ml-3">
 				<p className="font-medium text-info text-lg font-display group-hover:text-primary transition">
-					{company.companyName}
+					{company.company_name}
 				</p>
 				<p className="text-sm text-secondary group-hover:text-primary transition">
 					{job.role}

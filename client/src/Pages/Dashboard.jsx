@@ -25,7 +25,6 @@ const Dashboard = () => {
 		fetch(`${BASE_URL}/companies`)
 			.then((response) => response.json())
 			.then((companiesList) => {
-				console.log(companiesList);
 				setCompanies(companiesList);
 			});
 	}, []);
@@ -37,12 +36,15 @@ const Dashboard = () => {
 				{showModal && (
 					<Modal className="absolute" style={{ display: "block" }} />
 				)}
-				<div className="w-full h-full flex flex-row">
-					<div className="w-96 h-full shadow-lg border-r border-r-secondary">
-						<List offer={offer} setOffer={setOffer} />{" "}
+				{/* conditional rendering for companies route */}
+				{companies && (
+					<div className="w-full h-full flex flex-row">
+						<div className="w-96 h-full shadow-lg border-r border-r-secondary">
+							<List offer={offer} setOffer={setOffer} companies={companies} />{" "}
+						</div>
+						<JobDetailSection />
 					</div>
-					<JobDetailSection />
-				</div>
+				)}
 			</div>
 		</>
 	);
