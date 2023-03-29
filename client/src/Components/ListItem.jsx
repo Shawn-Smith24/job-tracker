@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { GrClose as Close } from "react-icons/gr";
+
 const ListItem = ({ job, company }) => {
 	function showJobDetails() {
 		// [ ] implement the functionality of filling job detail component wiht contents associated with the List Item
