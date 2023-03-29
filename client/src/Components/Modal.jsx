@@ -30,15 +30,19 @@ const Modal = () => {
 			<div className="w-full h-full relative">
 				<div className="text-info p-4 absolute rounded-xl bg-primary w-3/4 h-5/6 top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2">
 					<form onSubmit={handleSubmit}>
-						<div className="space-y-4">
-							<input
+						<div className="space-y 4">
+							<select
 								className="w-full p-2 border border-gray-300 rounded"
-								type="text"
 								name="input1"
 								value={formData.input1}
-								onChange={handleChange}
-								placeholder="Input 1"
-							/>
+								onChange={handleChange}>
+								<option value="" disabled selected>
+									Choose a role
+								</option>
+								<option value="Frontend">Frontend</option>
+								<option value="Backend">Backend</option>
+								<option value="FullStack">FullStack</option>
+							</select>
 							<input
 								className="w-full p-2 border border-gray-300 rounded"
 								type="text"
@@ -83,5 +87,4 @@ const Modal = () => {
 		</div>
 	);
 };
-
 export default Modal;
