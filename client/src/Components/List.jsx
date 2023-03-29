@@ -1,14 +1,15 @@
-import jobs from "../DummyData/jobs.json";
-import companies from "../DummyData/companies.json";
-
 import ListItem from "./ListItem";
 
-export default function List({ companies, jobs }) {
+export default function List({ companies, jobs, applications }) {
 	console.log("list component", companies);
 	return (
 		<ul className="">
-			{jobs.map((job, id) => (
-				<ListItem key={id} company={companies[0]} job={job} />
+			{applications.map((application, id) => (
+				<ListItem
+					key={id}
+					company={companies[0]}
+					job={jobs.find((job) => job.job_id === application.job_id)}
+				/>
 			))}
 		</ul>
 	);

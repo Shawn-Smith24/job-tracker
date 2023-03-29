@@ -54,7 +54,11 @@ const Dashboard = () => {
 				{companies && jobs && (
 					<div className="w-full h-full flex flex-row">
 						<div className="w-96 h-full shadow-lg border-r border-r-secondary">
-							<List companies={companies} jobs={jobs} />{" "}
+							<List
+								companies={companies}
+								jobs={jobs}
+								applications={applications}
+							/>{" "}
 						</div>
 						<JobDetailSection />
 					</div>
