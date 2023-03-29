@@ -17,12 +17,15 @@ const Navigation = () => {
 			<Search
 				color="#F0F0F0"
 				size="1.5em"
-				className="ml-4 cursor-pointer"
+				className="ml-4 cursor-pointer text-inf transition-colors"
 				onClick={search}
 			/>
-			<div className="cursor-pointer absolute right-0 w-fit pr-6 text-info top-1/2 -translate-y-1/2">
+			<div className="cursor-pointer absolute right-0 w-fit pr-6 text-info top-1/2 -translate-y-1/2 ">
 				<Link to="/signin">
-					<Logout color="#F0F0F0" size="2em" />
+					<Logout
+						size="2em"
+						className="text-info hover:text-accent transition-colors"
+					/>
 				</Link>
 			</div>
 		</div>
