@@ -27,7 +27,7 @@ const Modal = () => {
 
 	return (
 		<div className="absolute w-full h-full bg-[#000000D9] z-50 ">
-			<div className="w-full h-full relative">
+			<div className="w-full h-1/2 relative">
 				<div className="text-secondary flex flex-col items-center justify-center p-4 absolute rounded-xl bg-primary w-3/4 h-5/6 top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2">
 					<form onSubmit={handleSubmit}>
 						<div className="space-y 4">
