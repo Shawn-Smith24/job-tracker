@@ -5,9 +5,11 @@ import JobDetailSection from "../Components/JobDetailSection";
 import Navigation from "../Components/Navigation";
 import Modal from "../Components/Modal";
 import ModalContext from "../Components/ModalContext";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
+const BASE_URL = process.env.REACT_APP_MOCK_API_URL;
 const Dashboard = () => {
 	const { showModal } = useContext(ModalContext); // Access showModal from the context
+	const [companies, setCompanies] = useState(null);
 
 	const [offer, setOffer] = useState({
 		role: "Frontend Engineer",
@@ -18,6 +20,16 @@ const Dashboard = () => {
 		isRemote: "No",
 	});
 
+	useEffect(() => {
+		console.log("dashboard loading...");
+		fetch(`${BASE_URL}/companies`)
+			.then((response) => response.json())
+			.then((companiesList) => {
+				console.log(companiesList);
+				setCompanies(companiesList);
+			});
+	}, []);
+	console.log("companies List: ", companies);
 	return (
 		<>
 			<div className="w-full h-full flex flex-col">
