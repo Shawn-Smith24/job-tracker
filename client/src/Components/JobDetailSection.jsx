@@ -14,9 +14,13 @@ const JobDetailSection = ({ companies, jobs, displayedApp }) => {
 	return (
 		<div className="relative w-full text-info py-4 px-12 bg-primary flex flex-row justify-center items-center">
 			{applicationCard()}
-			<div className="border w-full h-[600px] ml-6">asdf</div>
+			{dataVisualization()}
 		</div>
 	);
+	function dataVisualization() {
+		return <div className="border w-full h-[600px] ml-6">asdf</div>;
+	}
+
 	function applicationCard() {
 		const experience = ["Apprentice", "Jr", "Mid-Level", "Sr"];
 		const job = jobs.find((job) => job.job_id === displayedApp.job_id);
