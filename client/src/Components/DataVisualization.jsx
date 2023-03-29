@@ -42,18 +42,18 @@ const DataVisualization = () => {
 	};
 
 	const options = {
-		indexAxis: "y",
+		indexAxis: "x",
 		plugins: {
 			legend: {
 				position: "right",
 			},
 			title: {
 				display: true,
-				text: "Horizontal Bar Chart",
+				text: "Vertical Bar Chart",
 			},
 		},
 		scales: {
-			x: {
+			y: {
 				beginAtZero: true,
 			},
 		},
