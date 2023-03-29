@@ -1,11 +1,9 @@
 import React from "react";
-import companies from "../DummyData/companies.json";
-import jobs from "../DummyData/jobs.json";
 import Timeline from "./Timeline";
 import { FiEdit as Edit } from "react-icons/fi";
 import { useContext } from "react";
 import ModalContext from "./ModalContext";
-const JobDetailSection = () => {
+const JobDetailSection = ({ companies, jobs, displayedApp }) => {
 	const { setShowModal } = useContext(ModalContext);
 
 	function editJobDetail() {
@@ -38,7 +36,7 @@ const JobDetailSection = () => {
 					<ul className="text-center mt-12">
 						<li>
 							<strong className="text-accent">Company</strong>:{" "}
-							{companies[0].companyName}
+							{companies[0].company_name}
 						</li>
 						<li>
 							<strong className="text-accent">Location</strong>:{" "}
@@ -49,7 +47,7 @@ const JobDetailSection = () => {
 						</li>
 						<li>
 							<strong className="text-accent">Experience Level</strong>:{" "}
-							{experience[jobs[0].expLevel]}
+							{experience[jobs[0].experience_level]}
 						</li>
 						<li>
 							<strong className="text-accent">Is Remote?</strong>: No

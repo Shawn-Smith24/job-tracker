@@ -27,6 +27,7 @@ const Dashboard = () => {
 	// TODO: for each job, get the company via company_id
 	const [companies, setCompanies] = useState(null);
 
+	const [displayedApp, setDisplayedApp] = useState(dummyApps[0]);
 	// this code will mimic the call to the server
 	useEffect(() => {
 		setApplications(dummyApps);
@@ -51,7 +52,7 @@ const Dashboard = () => {
 					<Modal className="absolute" style={{ display: "block" }} />
 				)}
 				{/* conditional rendering for companies route */}
-				{companies && jobs && (
+				{companies && jobs && applications && (
 					<div className="w-full h-full flex flex-row">
 						<div className="w-96 h-full shadow-lg border-r border-r-secondary">
 							<List
@@ -60,7 +61,11 @@ const Dashboard = () => {
 								applications={applications}
 							/>{" "}
 						</div>
-						<JobDetailSection />
+						<JobDetailSection
+							displayedApp={displayedApp}
+							companies={companies}
+							jobs={jobs}
+						/>
 					</div>
 				)}
 			</div>
