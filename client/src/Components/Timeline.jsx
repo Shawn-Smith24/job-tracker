@@ -3,7 +3,7 @@ import React from "react";
 const Timeline = () => {
 	return (
 		<div className="overflow-x-auto mt-10">
-			<ol class="bordertext-secondary md:flex md:justify-center md:gap-6 md:border-l-0 md:border-t">
+			<ol class="bordertext-secondary md:flex md:justify-around md:gap-6 md:border-l-0 md:border-t">
 				<li className="">
 					<div class="flex-start flex items-center pt-2 md:block md:pt-0">
 						<div class="-ml-[5px] mr-3 h-[9px] w-[9px] roundetext-secondary dark:bg-info md:ml-0 md:mr-0 md:-mt-[5px]"></div>
