@@ -6,12 +6,57 @@
 	},
 	{
 		"company_id": 2,
+		"company_name": "Uber",
+		"company_bio": "We are a tech company that connects the physical and digital worlds to help make movement happen at the tap of a button. Because we believe in a world where movement should be accessible. "
+	},
+	{
+		"company_id": 3,
 		"company_name": "Google",
 		"company_bio": "Google LLC (Google), a subsidiary of Alphabet Inc, is a provider of search and advertising services on the internet. The company focuses on various business areas such as advertising, search, platforms and operating systems, and enterprise and hardware products."
 	},
 	{
-		"company_id": 3,
-		"company_name": "Uber",
-		"company_bio": "Uber Technologies matches consumers looking for rides, food delivery, or shipping with people selling those services. Uber's largest source of revenue is its delivery business, but its rides business generates the most profit."
+		"company_id": 4,
+		"company_name": "Netflix",
+		"company_bio": "Netflix Inc (Netflix) provides internet entertainment services for watching movies and television shows. The company offers TV shows and movies such as original series, documentaries, and feature films through an internet subscription on the TV, computer, and mobile devices. It offers DVDs by-mail service in the US."
+	},
+	{
+		"company_id": 5,
+		"company_name": "Airbnb",
+		"company_bio": "Airbnb, Inc., together with its subsidiaries, operates a platform that enables hosts to offer stays and experiences to guests worldwide. The company's marketplace model connects hosts and guests online or through mobile devices to book spaces and experiences."
+	},
+	{
+		"company_id": 6,
+		"company_name": "Sony",
+		"company_bio": "Headquartered in San Diego, Sony Electronics is a leading provider of audio/video electronics and information technology products for the consumer and professional markets. Operations include research and development, engineering, sales, marketing, distribution, and customer service."
+	},
+	{
+		"company_id": 7,
+		"company_name": "Reddit",
+		"company_bio": "Reddit is a social media website known for its discussion forums on politics, sports, entertainment, and other topics."
+	},
+	{
+		"company_id": 8,
+		"company_name": "Apple",
+		"company_bio": "Apple Inc. (Apple) designs, manufactures and markets smartphones, personal computers, tablets, wearables and accessories and sells a range of related services"
+	},
+	{
+		"company_id": 9,
+		"company_name": "Twilio",
+		"company_bio": "Twilio, Inc. engages in the development of communications software, cloud-based platform, and services. Its products include Twilio flex, messaging, programmable voice, programmable video, elastic SIP trunking, and IoT. The company was founded by John Wolthuis, Jeffery G."
+	},
+	{
+		"company_id": 10,
+		"company_name": "Pinterest",
+		"company_bio": "Pinterest is the visual inspiration platform people around the world use to shop products personalized to their taste, find ideas to do offline and discover the most inspiring creators. Today, more than 450 million people come to the platform every month to explore and experience billions of ideas that have been saved."
+	},
+	{
+		"company_id": 11,
+		"company_name": "Twitter",
+		"company_bio": "Twitter Inc (Twitter), a subsidiary of X Holdings I Inc, is a social networking platform for people to create and share ideas. The company, through the platform, provides public self-expression and conversation."
+	},
+	{
+		"company_id": 12,
+		"company_name": "Tik Tok",
+		"company_bio": "TikTok is the leading destination for short-form mobile video. Our mission is to inspire creativity and bring joy. TikTok has global offices including Los Angeles, New York, London, Paris, Berlin, Dubai, Mumbai, Singapore, Jakarta, Seoul, and Tokyo."
 	}
 ]

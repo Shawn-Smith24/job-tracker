@@ -6,7 +6,8 @@ import Navigation from "../Components/Navigation";
 import Modal from "../Components/Modal";
 import ModalContext from "../Components/ModalContext";
 import { useContext, useEffect } from "react";
-
+// dummy applications fetch call
+import apps from "../DummyData/applications.json";
 /**
  * Strategy:
  * 1. Instead of fetching all of the different data, we need to take the user's backrefed property
@@ -15,11 +16,14 @@ import { useContext, useEffect } from "react";
  */
 const BASE_URL = process.env.REACT_APP_MOCK_API_URL;
 const Dashboard = () => {
+	// dummy applications fetch call
+
 	const { showModal } = useContext(ModalContext); // Access showModal from the context
 	const [companies, setCompanies] = useState(null);
 
 	// TODO: use the backref property of the current user to get list of application objects
-	// const [applications, setApplications] = useState(null);
+	const [applications, setApplications] = useState(null);
+
 	// TODO: for each application, do a fetch request to /jobs/<int:job_id> and store in state jobs
 	// const [jobs, setJobs] = useState(null);
 
@@ -31,15 +35,18 @@ const Dashboard = () => {
 		expLevel: 1,
 		isRemote: "No",
 	});
+	useEffect(() => {
+		setApplications(apps);
+	}, []);
 
 	useEffect(() => {
-		console.log("dashboard loading...");
 		fetch(`${BASE_URL}/companies`)
 			.then((response) => response.json())
 			.then((companiesList) => {
 				setCompanies(companiesList);
 			});
-	}, []);
+	});
+
 	console.log("companies List: ", companies);
 	return (
 		<>
@@ -52,7 +59,7 @@ const Dashboard = () => {
 				{companies && (
 					<div className="w-full h-full flex flex-row">
 						<div className="w-96 h-full shadow-lg border-r border-r-secondary">
-							<List offer={offer} />{" "}
+							<List />{" "}
 						</div>
 						<JobDetailSection />
 					</div>
