@@ -33,7 +33,9 @@ const SignIn = () => {
 						<h1 className="font-display w-full text-6xl text-center pb-12 text-accent">
 							Sign In
 						</h1>
-						<p className="w-full text-center">login_description</p>
+						<p className="w-full text-center mb-4">
+							Enter the fields below to sign in
+						</p>
 						<input
 							name="email"
 							type="email"
@@ -70,7 +72,9 @@ const SignIn = () => {
 						<h1 className="font-display w-full text-6xl text-center pb-12 text-accent">
 							Sign Up
 						</h1>
-						<p className="w-full text-center">login_description</p>
+						<p className="w-full text-center mb-4">
+							Enter the fields below to sign up for an Account
+						</p>
 						<input
 							name="name"
 							className="text-primary w-full p-2 rounded-md my-2"
