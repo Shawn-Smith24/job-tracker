@@ -15,7 +15,7 @@ const JobDetailSection = ({ companies, jobs, displayedApp }) => {
 	return (
 		<div className="relative w-full text-info py-4 px-12 bg-primary flex flex-row justify-center items-center">
 			{applicationCard()}
-			<div className="border w-full h-[600px] ml-6 rounded-xl border-secondary">
+			<div className="border w-full h-[700px] ml-6 rounded-xl border-secondary">
 				<DataVisualization />
 			</div>
 		</div>
@@ -28,7 +28,7 @@ const JobDetailSection = ({ companies, jobs, displayedApp }) => {
 		return (
 			<div
 				className="
-				max-w-[650px] w-full h-[600px] p-8 bg-primary rounded-xl border border-secondary shadow-lg
+				max-w-[650px] w-full h-[700px] p-8 bg-primary rounded-xl border border-secondary shadow-lg
 				">
 				<div className="relative">
 					<Edit

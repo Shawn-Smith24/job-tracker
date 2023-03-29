@@ -37,18 +37,14 @@ const DonutChart = ({ colors }) => {
 					color: `${colors.info}`,
 				},
 			},
-			title: {
-				display: true,
-				text: "Doughnut Chart Title",
-				font: {
-					size: 20,
-				},
-				color: `${colors.info}`,
-			},
 		},
 	};
 
-	return <Doughnut data={data} options={options} />;
+	return (
+		<div className="w-full h-fit ">
+			<Doughnut data={data} options={options} />
+		</div>
+	);
 };
 
 export default DonutChart;
