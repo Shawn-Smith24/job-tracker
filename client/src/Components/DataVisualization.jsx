@@ -18,23 +18,29 @@ ChartJS.register(
 	Tooltip,
 	Legend
 );
+const colors = {
+	primary: "#273248",
+	secondary: "#69758C ",
+	info: "#F0F0F0",
+	accent: "#e88060",
+};
 
 const DataVisualization = () => {
 	const data = {
-		labels: ["Label1", "Label2", "Label3"],
+		labels: ["Junior", "Mid-Level", "Senior"],
 		datasets: [
 			{
 				label: "Dataset 1",
-				data: [10, 20, 30],
+				data: [2, 1, 1],
 				backgroundColor: [
-					"rgba(75, 192, 192, 0.2)",
-					"rgba(153, 102, 255, 0.2)",
-					"rgba(255, 159, 64, 0.2)",
+					`${colors.accent}`,
+					`${colors.accent}`,
+					`${colors.accent}`,
 				],
 				borderColor: [
-					"rgba(75, 192, 192, 1)",
-					"rgba(153, 102, 255, 1)",
-					"rgba(255, 159, 64, 1)",
+					`${colors.accent}`,
+					`${colors.accent}`,
+					`${colors.accent}`,
 				],
 				borderWidth: 1,
 			},
@@ -55,12 +61,15 @@ const DataVisualization = () => {
 		scales: {
 			y: {
 				beginAtZero: true,
+				ticks: {
+					stepSize: 1,
+				},
 			},
 		},
 	};
 
 	return (
-		<div>
+		<div className="w-full h-full p-4 flex flex-row justify-center items-center">
 			<Bar data={data} options={options} />
 		</div>
 	);
