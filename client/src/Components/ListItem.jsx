@@ -7,7 +7,7 @@ const ListItem = ({ job, company }) => {
 		console.log("showJobDetails");
 	}
 	return (
-		<li className="flex py-4">
+		<li className="flex py-4 border-b border-b-secondary">
 			<div className="ml-3 cursor-pointer" onClick={(e) => showJobDetails(e)}>
 				<p className="font-medium text-info text-lg font-display">
 					{company.companyName}

@@ -18,7 +18,7 @@ const Dashboard = () => {
 				<Navigation />
 
 				<div className="w-full h-full flex flex-row">
-					<div className="w-96 h-full shadow-lg">
+					<div className="w-96 h-full shadow-lg border-r border-r-secondary">
 						<List offer={offer} setOffer={setOffer} />
 					</div>
 					<JobDetailSection />
