@@ -3,7 +3,7 @@ import companies from "../DummyData/companies.json";
 
 import ListItem from "./ListItem";
 
-export default function List() {
+export default function List({ companies, jobs }) {
 	console.log("list component", companies);
 	return (
 		<ul className="">
