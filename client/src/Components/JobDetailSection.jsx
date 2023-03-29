@@ -1,7 +1,7 @@
 import React from "react";
 import companies from "../DummyData/companies.json";
 import jobs from "../DummyData/jobs.json";
-
+import Timeline from "./Timeline";
 const JobDetailSection = () => {
 	return (
 		<div className="relative w-full text-info p-4 bg-primary">
@@ -37,10 +37,10 @@ const JobDetailSection = () => {
 				</ul>
 				<div>
 					<h2 className="font-display text-4xl text-center mt-12 text-accent">
-						Offer Status
+						Application Status
 					</h2>
-					<p className="text-center mt-12">Awaiting Response ...</p>
 				</div>
+				<Timeline />
 			</div>
 		);
 	}
