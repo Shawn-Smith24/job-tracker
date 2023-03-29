@@ -26,13 +26,13 @@ const Modal = () => {
 	};
 
 	return (
-		<div className="absolute w-full h-full bg-[#000000D9] z-50">
+		<div className="absolute w-full h-full bg-[#000000D9] z-50 ">
 			<div className="w-full h-full relative">
-				<div className="text-info p-4 absolute rounded-xl bg-primary w-3/4 h-5/6 top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2">
+				<div className="text-secondary p-4 absolute rounded-xl bg-primary w-3/4 h-5/6 top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2">
 					<form onSubmit={handleSubmit}>
 						<div className="space-y 4">
 							<select
-								className="w-full p-2 border border-gray-300 rounded"
+								className="w-full p-2 border border-secondary rounded"
 								name="input1"
 								value={formData.input1}
 								onChange={handleChange}>
@@ -44,7 +44,7 @@ const Modal = () => {
 								<option value="FullStack">FullStack</option>
 							</select>
 							<input
-								className="w-full p-2 border border-gray-300 rounded"
+								className="placeholder-secondary w-full p-2 border border-secondary rounded"
 								type="text"
 								name="input2"
 								value={formData.input2}
@@ -52,7 +52,7 @@ const Modal = () => {
 								placeholder="Input 2"
 							/>
 							<input
-								className="w-full p-2 border border-gray-300 rounded"
+								className="placeholder-secondary w-full p-2 border border-secondary rounded"
 								type="text"
 								name="input3"
 								value={formData.input3}
@@ -60,7 +60,7 @@ const Modal = () => {
 								placeholder="Input 3"
 							/>
 							<input
-								className="w-full p-2 border border-gray-300 rounded"
+								className="placeholder-secondary w-full p-2 border border-secondary rounded "
 								type="text"
 								name="input4"
 								value={formData.input4}
@@ -70,13 +70,13 @@ const Modal = () => {
 						</div>
 						<div className="flex justify-end mt-4 space-x-4">
 							<button
-								className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+								className="px-4 py-2 text-info rounded border border-info"
 								type="button"
 								onClick={handleCancel}>
 								Cancel
 							</button>
 							<button
-								className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+								className="px-4 py-2 bg-accent text-info rounded"
 								type="submit">
 								Submit
 							</button>
