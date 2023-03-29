@@ -18,7 +18,11 @@ const JobDetailSection = ({ companies, jobs, displayedApp }) => {
 		</div>
 	);
 	function dataVisualization() {
-		return <div className="border w-full h-[600px] ml-6">asdf</div>;
+		return (
+			<div className="border w-full h-[600px] ml-6 rounded-xl border-secondary">
+				asdf
+			</div>
+		);
 	}
 
 	function applicationCard() {
