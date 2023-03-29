@@ -59,6 +59,7 @@ const Dashboard = () => {
 								companies={companies}
 								jobs={jobs}
 								applications={applications}
+								setDisplayedApp={setDisplayedApp}
 							/>{" "}
 						</div>
 						<JobDetailSection

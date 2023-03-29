@@ -1,11 +1,17 @@
 import ListItem from "./ListItem";
 
-export default function List({ companies, jobs, applications }) {
-	console.log("list component", companies);
+export default function List({
+	companies,
+	jobs,
+	applications,
+	setDisplayedApp,
+}) {
 	return (
 		<ul className="">
 			{applications.map((application, id) => (
 				<ListItem
+					setDisplayedApp={setDisplayedApp}
+					application={application}
 					key={id}
 					// TODO: this needs to be replaced once we have capabilities for backref
 					company={companies[0]}

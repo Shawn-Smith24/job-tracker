@@ -18,7 +18,8 @@ const JobDetailSection = ({ companies, jobs, displayedApp }) => {
 	);
 	function applicationCard() {
 		const experience = ["Apprentice", "Jr", "Mid-Level", "Sr"];
-
+		const job = jobs.find((job) => job.job_id === displayedApp.job_id);
+		const company = companies[1];
 		return (
 			<div
 				className="
@@ -31,23 +32,22 @@ const JobDetailSection = ({ companies, jobs, displayedApp }) => {
 						onClick={editJobDetail}
 					/>
 					<h2 className="font-display text-6xl w-full text-center pt-10 text-accent">
-						{jobs[0].role}
+						{job.role}
 					</h2>
 					<ul className="text-center mt-12">
 						<li>
 							<strong className="text-accent">Company</strong>:{" "}
-							{companies[0].company_name}
+							{company.company_name}
 						</li>
 						<li>
-							<strong className="text-accent">Location</strong>:{" "}
-							{jobs[0].location}
+							<strong className="text-accent">Location</strong>: {job.location}
 						</li>
 						<li>
-							<strong className="text-accent">Salary</strong>: ${jobs[0].salary}
+							<strong className="text-accent">Salary</strong>: ${job.salary}
 						</li>
 						<li>
 							<strong className="text-accent">Experience Level</strong>:{" "}
-							{experience[jobs[0].experience_level]}
+							{experience[job.experience_level]}
 						</li>
 						<li>
 							<strong className="text-accent">Is Remote?</strong>: No

@@ -1,10 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const ListItem = ({ job, company }) => {
+const ListItem = ({ job, company, application, setDisplayedApp }) => {
 	function showJobDetails() {
-		// [ ] implement the functionality of filling job detail component wiht contents associated with the List Item
 		console.log("showJobDetails");
+		setDisplayedApp(application);
 	}
 
 	return (
