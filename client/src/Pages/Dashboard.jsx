@@ -6,6 +6,7 @@ import Navigation from "../Components/Navigation";
 import Modal from "../Components/Modal";
 import ModalContext from "../Components/ModalContext";
 import { useContext, useEffect } from "react";
+
 /**
  * Strategy:
  * 1. Instead of fetching all of the different data, we need to take the user's backrefed property

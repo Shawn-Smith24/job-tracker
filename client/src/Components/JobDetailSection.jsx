@@ -3,6 +3,7 @@ import Timeline from "./Timeline";
 import { FiEdit as Edit } from "react-icons/fi";
 import { useContext } from "react";
 import ModalContext from "./ModalContext";
+import DataVisualization from "./DataVisualization";
 const JobDetailSection = ({ companies, jobs, displayedApp }) => {
 	const { setShowModal } = useContext(ModalContext);
 
@@ -14,16 +15,11 @@ const JobDetailSection = ({ companies, jobs, displayedApp }) => {
 	return (
 		<div className="relative w-full text-info py-4 px-12 bg-primary flex flex-row justify-center items-center">
 			{applicationCard()}
-			{dataVisualization()}
+			<div className="border w-full h-[600px] ml-6 rounded-xl border-secondary">
+				<DataVisualization />
+			</div>
 		</div>
 	);
-	function dataVisualization() {
-		return (
-			<div className="border w-full h-[600px] ml-6 rounded-xl border-secondary">
-				asdf
-			</div>
-		);
-	}
 
 	function applicationCard() {
 		const experience = ["Apprentice", "Jr", "Mid-Level", "Sr"];
