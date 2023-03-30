@@ -14,35 +14,41 @@ from models import db, User, Application, Job, Company
 fake = Faker()
 
 
-company_list = ["Apple", "Amazon", "Google", "Netflix", "Sony", "EA", "Microsoft", "Airbnb", "Pinterest", "Tesla", "Twitter", "Meta", "Tik Tok", "Youtube", "Reddit", "Instagram", "Honda", "Waymo", "Twilio",]
-job_list = ["Frontend Engineer", "Backend Engineer", "Fullstack Engineer", "UX/UI Designer", "Dev Ops", "Project Manager",]
-user_list = ["Madison_Evans",]
+company_list = ["Apple", "Amazon", "Google", "Netflix", "Sony", "EA", "Microsoft", "Airbnb", "Pinterest", "Tesla", "Twitter", "Meta", "Tik Tok", "Youtube", "Reddit", "Instagram", "Honda", "Waymo", "Twilio"]
+job_list = ["Frontend Engineer", "Backend Engineer", "Fullstack Engineer", "UX/UI Designer", "Dev Ops", "Project Manager"]
 
+users = [
+        {
+            'name': 'Madison Evans',
+            'email': 'm.corbinevans@gmail.com',
+            'password': 'holliejo1',
+        },
+
+    ]
 COMPANY_QTY = len(company_list)
-JOB_QTY = len(job_list)
-APPLICATION_QTY =10
-USER_QTY = len(user_list)
+JOB_QTY = 50
+APPLICATION_QTY =8
+USER_QTY = len(users)
 
 print("Seeding jobs...")
 def make_jobs(job_list = job_list):
     Job.query.delete()
             
     jobs = []
-      
-          
+    exp_level_list = ["Junior", "Mid-Level", "Senior"]
     for i in range(JOB_QTY):
         job = Job(
             id = i+1,
-            job_name = job_list[i],
+            job_name = job_list[randint(0,len(job_list)-1)],
             location = fake.city(),
-            salary = randint(10000, 100000),
-            experience_level = randint(1, 2), 
+            salary = randint(50, 120)*1000,
+            experience_level = exp_level_list[randint(0, 2)], 
             company_id = randint(1, COMPANY_QTY) 
         )
         jobs.append(job)
         
-        db.session.add_all(jobs)
-        db.session.commit()
+    db.session.add_all(jobs)
+    db.session.commit()
         
         
 print("Seeding companies...")
@@ -58,25 +64,24 @@ def make_company(company_list = company_list):
         )
         companies.append(company)
         
-        db.session.add_all(companies)
-        db.session.commit()
+    db.session.add_all(companies)
+    db.session.commit()
         
 print("Seeding users...")
-def make_users(user_list = user_list):
+
+def make_users():
     User.query.delete()
-            
-    users = []
-            
-    for i in range(USER_QTY):
+    
+    for i in range(len(users)):
         user = User(
-            id = i+1,
-            username = user_list[i],
-            password = fake.password()
+            id=i+1,
+            name=users[i]['name'], 
+            email=users[i]['email'],
         )
-        users.append(user)
-        
-        db.session.add_all(users)
-        db.session.commit()
+        user.password = users[i]['password']
+        db.session.add(user)
+
+    db.session.commit()
         
 print("Seeding applications...")
 def make_applications():
@@ -87,14 +92,14 @@ def make_applications():
     for i in range(APPLICATION_QTY):
         application = Application(
             id = i+1,
-            status = randint(1, 3),
+            status = randint(0, 3),
             user_id = randint(1, USER_QTY),
             job_id = randint(1, JOB_QTY)
         )
         applications.append(application)
         
-        db.session.add_all(applications)
-        db.session.commit()
+    db.session.add_all(applications)
+    db.session.commit()
         
 if __name__ == '__main__':
     with app.app_context():

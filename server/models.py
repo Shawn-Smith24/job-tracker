@@ -5,15 +5,14 @@ from sqlalchemy.orm import validates
 from sqlalchemy.ext.associationproxy import association_proxy
 from sqlalchemy_serializer import SerializerMixin
 
+from flask_bcrypt import Bcrypt
+bcrypt = Bcrypt()
+
 metadata = MetaData(naming_convention={
     "fk": "fk_%(table_name)s_%(column_0_name)s_%(referred_table_name)s",
 })
 
 db = SQLAlchemy(metadata=metadata)
-
-
-# Models go here!
-
 
 class User(db.Model, SerializerMixin):
     __tablename__ = 'users'
@@ -21,26 +20,26 @@ class User(db.Model, SerializerMixin):
     serialize_rules = ('-applied.user', '-applied.job')
 
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String)
-    password = db.Column(db.String)
+    name = db.Column(db.String)
+    email = db.Column(db.String)
+    password_hash = db.Column(db.String)
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())
-
-    # a list of application objects for a given user 
     applied = db.relationship('Application', backref='user')
-    
-    # @validates('username')
-    # def validates_username(self,key,username):
-    #     if not username or len(username) > 5 and len(username) < 50:
-    #         raise AssertionError('Username must be between 5 and 50 characters.')
-    #     return username
 
-    # @validates('password')
-    # def validates_password(self,key,password):
-    #     if not password or len(password) > 10 and len(password) < 50:
-    #         raise AssertionError('Password must be between 5 and 50 characters.')
-    #     return password
-    
+    def set_password(self, password):
+        self.password_hash = bcrypt.generate_password_hash(password).decode('utf-8')
+
+    def authenticate(self, password):
+        return bcrypt.check_password_hash(self.password_hash, password)
+
+    @property
+    def password(self):
+        raise AttributeError('Password is not a readable attribute.')
+
+    @password.setter
+    def password(self, password):
+        self.set_password(password)
 
 class Application(db.Model, SerializerMixin):
 
@@ -67,13 +66,13 @@ class Job(db.Model, SerializerMixin):
     job_name = db.Column(db.String)
     location = db.Column(db.String)
     salary = db.Column(db.Integer)
-    experience_level = db.Column(db.Integer)
+    experience_level = db.Column(db.String)
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())
 
     company_id = db.Column(db.Integer, db.ForeignKey('companies.id'))
 
-   # relationships
+    # relationships
     # applications = db.relationship('Application', backref='job')
     company = db.relationship('Company', backref='job')
 
@@ -90,5 +89,3 @@ class Company(db.Model, SerializerMixin):
     company_bio = db.Column(db.String)
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())
-
-    

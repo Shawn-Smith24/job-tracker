@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const SignIn = () => {
-	const [isSignIn, setIsSignIn] = useState(true);
+const SignUp = () => {
 	const navigate = useNavigate();
 	const [signinFormData, setSigninFormData] = useState({
 		email: "",
@@ -10,7 +9,7 @@ const SignIn = () => {
 	});
 
 	function toggleSignIn() {
-		navigate("/signup", { replace: true });
+		navigate("/signin", { replace: true });
 	}
 
 	const handleChange = (e) => {
@@ -58,11 +57,20 @@ const SignIn = () => {
 					onSubmit={handleSignin}
 					className="items-center justify-center flex flex-col w-[500px] h-[550px] p-12 shadow-xl absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 rounded-lg">
 					<h1 className="font-display w-full text-6xl text-center pb-12 text-accent">
-						Sign In
+						Sign Up
 					</h1>
 					<p className="w-full text-center mb-4">
-						Enter the fields below to sign in
+						Enter the fields below to sign up
 					</p>
+					<input
+						name="name"
+						type="text"
+						className="w-full rounded-md p-2 my-2 text-primary"
+						placeholder="Enter your full name"
+						value={signinFormData.email}
+						onChange={handleChange}
+						required
+					/>
 					<input
 						name="email"
 						type="email"
@@ -82,13 +90,22 @@ const SignIn = () => {
 						required
 					/>
 					<input
+						name="password"
+						className="w-full p-2 rounded-md my-2 text-primary"
+						type="password"
+						placeholder="Re-enter password"
+						value={signinFormData.password}
+						onChange={handleChange}
+						required
+					/>
+					<input
 						className="cursor-pointer text-center w-full border border-info rounded-lg p-4 my-2 bg-primary transition-colors hover:bg-accent hover:border-accent hover:text-primary"
 						type="submit"
 						value="Sign In"
 					/>
 
 					<p className="w-full my-2 text-center">
-						Don't have an account yet? Sign Up{" "}
+						Already have an account? Sign In{" "}
 						<strong className="cursor-pointer underline" onClick={toggleSignIn}>
 							here
 						</strong>
@@ -98,4 +115,4 @@ const SignIn = () => {
 		</>
 	);
 };
-export default SignIn;
+export default SignUp;

@@ -1,12 +1,29 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-
-const ListItem = ({ application, setDisplayedContent, displayedContent }) => {
+import { useJobs } from "./ContextProviders/JobsContext";
+import { useCompanies } from "./ContextProviders/CompaniesContext";
+const ListItem = ({
+	application,
+	setDisplayedContent,
+	updateExperienceCount,
+}) => {
 	const [job, setJob] = useState(null);
 	const [company, setCompany] = useState(null);
+	const { companies, setCompanies } = useCompanies();
+	const { jobs, setJobs } = useJobs();
 
 	function showJobDetails() {
+		let applicationStatus = "";
+		if (application.status === 1) {
+			applicationStatus = "Applied";
+		} else if (application.status === 2) {
+			applicationStatus = "Interviewing";
+		} else if (application.status === 3) {
+			applicationStatus = "Offer Given";
+		} else if (application.status === 3) {
+			applicationStatus = "Application Rejected";
+		}
 		if (job) {
 			setDisplayedContent({
 				jobName: job.job_name,
@@ -14,6 +31,7 @@ const ListItem = ({ application, setDisplayedContent, displayedContent }) => {
 				salary: job.salary,
 				expLevel: job.experience_level,
 				location: job.location,
+				applicationStatus: applicationStatus,
 			});
 		}
 	}
@@ -23,7 +41,13 @@ const ListItem = ({ application, setDisplayedContent, displayedContent }) => {
 			.then((res) => res.json())
 			.then((job) => {
 				setCompany(job.company);
+				console.log("JOB EXP", job.experience_level);
+				setCompanies(...companies, company);
 				setJob(job);
+				setJobs(...jobs, job);
+
+				// Update experienceCount in the parent component
+				updateExperienceCount(job.experience_level);
 			});
 	}, [application]);
 

@@ -1,4 +1,5 @@
 import React from "react";
+import { JobsContext, useJobs } from "./ContextProviders/JobsContext";
 import {
 	Chart as ChartJS,
 	CategoryScale,
@@ -19,13 +20,13 @@ ChartJS.register(
 	Legend
 );
 
-const BarChart = ({ colors }) => {
+const BarChart = ({ colors, experienceCount }) => {
 	const data = {
 		labels: ["Junior", "Mid-Level", "Senior"],
 		datasets: [
 			{
 				label: "Dataset 1",
-				data: [2, 1, 1],
+				data: experienceCount,
 				backgroundColor: [
 					`${colors.accent}`,
 					`${colors.accent}`,
