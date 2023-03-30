@@ -16,10 +16,10 @@ const Dashboard = () => {
 	const [jobs, setJobs] = useState(null);
 	const [companies, setCompanies] = useState(null);
 	const [displayedContent, setDisplayedContent] = useState({
-		jobName: "asdf",
-		companyName: "asdf",
-		salary: 123,
-		expLevel: 1,
+		jobName: "",
+		companyName: "",
+		salary: "",
+		expLevel: "",
 	});
 
 	function getApplications() {
