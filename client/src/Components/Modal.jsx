@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import ModalContext from "./ModalContext";
+import { motion } from "framer-motion";
 
 const Modal = () => {
 	const { setShowModal } = useContext(ModalContext);
@@ -28,7 +29,21 @@ const Modal = () => {
 	return (
 		<div className="absolute w-full h-full bg-[#000000D9] z-50 ">
 			<div className="w-full h-full relative">
-				<div className="text-secondary h-fit flex flex-col items-center justify-center px-4 py-10 absolute rounded-xl border w-3/4 top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2">
+				<motion.div
+					initial={{
+						opacity: 0,
+						y: 200,
+						translateX: "-50%",
+						translateY: "-50%",
+					}}
+					animate={{
+						opacity: 1,
+						y: 0,
+						transition: { type: "spring", duration: 1 },
+					}}
+					className="
+					text-secondary h-fit flex flex-col items-center justify-center px-4 py-10 absolute rounded-xl border w-3/4 top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2
+					lg:px-12">
 					<form onSubmit={handleSubmit}>
 						<div className="space-y 4">
 							{/* TODO: enter company name */}
@@ -133,7 +148,7 @@ const Modal = () => {
 							</button>
 						</div>
 					</form>
-				</div>
+				</motion.div>
 			</div>
 		</div>
 	);
