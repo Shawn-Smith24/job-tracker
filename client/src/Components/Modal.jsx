@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import ModalContext from "./ModalContext";
+import ModalContext from "./ContextProviders/ModalContext";
 import { motion } from "framer-motion";
 
 const Modal = () => {

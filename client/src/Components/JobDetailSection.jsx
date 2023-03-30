@@ -1,8 +1,7 @@
 import React from "react";
-import Timeline from "./Timeline";
 import { FiEdit as Edit } from "react-icons/fi";
 import { useContext } from "react";
-import ModalContext from "./ModalContext";
+import ModalContext from "./ContextProviders/ModalContext";
 import DataVisualization from "./DataVisualization";
 const JobDetailSection = ({ displayedContent }) => {
 	const { setShowModal } = useContext(ModalContext);

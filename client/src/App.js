@@ -3,7 +3,8 @@ import SignIn from "./Pages/SignIn";
 import Landing from "./Pages/Landing";
 import Dashboard from "./Pages/Dashboard";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { ModalProvider } from "./Components/ModalContext";
+import { ModalProvider } from "./Components/ContextProviders/ModalContext";
+import { ApplicationsProvider } from "./Components/ContextProviders/ApplicationsContext"; // Import ApplicationsProvider
 
 function App() {
 	return (
@@ -13,7 +14,16 @@ function App() {
 					<Routes>
 						<Route path="/landing" element={<Landing />} />
 						<Route path="/" element={<SignIn />} />
-						<Route path="/dashboard" element={<Dashboard />} />
+						<Route
+							path="/dashboard"
+							element={
+								<ApplicationsProvider>
+									{" "}
+									{/* Wrap Dashboard with ApplicationsProvider */}
+									<Dashboard />
+								</ApplicationsProvider>
+							}
+						/>
 					</Routes>
 				</Router>
 			</ModalProvider>

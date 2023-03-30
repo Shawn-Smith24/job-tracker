@@ -4,15 +4,17 @@ import { useState } from "react";
 import JobDetailSection from "../Components/JobDetailSection";
 import Navigation from "../Components/Navigation";
 import Modal from "../Components/Modal";
-import ModalContext from "../Components/ModalContext";
+import ModalContext from "../Components/ContextProviders/ModalContext";
 import { useContext, useEffect } from "react";
+import { useApplications } from "../Components/ContextProviders/ApplicationsContext";
 
 import dummyJobs from "../DummyData/jobs.json";
 import dummyCompanies from "../DummyData/companies.json";
 
 const Dashboard = () => {
 	const { showModal } = useContext(ModalContext); // Access showModal from the context
-	const [applications, setApplications] = useState(null);
+	const { applications, setApplications } = useApplications();
+
 	const [jobs, setJobs] = useState(null);
 	const [companies, setCompanies] = useState(null);
 	const [displayedContent, setDisplayedContent] = useState({
@@ -54,7 +56,6 @@ const Dashboard = () => {
 			<div className="w-full h-full flex flex-col">
 				<Navigation />
 				{showModal && <Modal />}
-				{/* conditional rendering for companies route */}
 				{companies && jobs && applications && displayedContent && (
 					<div
 						className="
