@@ -5,23 +5,30 @@ import { generateColorVariations } from "../helpers/generateColorVariations";
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const DonutChart = ({ colors }) => {
+	const labels = [
+		"Applied",
+		"Interview Phase",
+		"Offer Given",
+		"Application Rejected",
+	];
 	const accentVariations = generateColorVariations(colors.accent);
-
 	const data = {
-		labels: ["Applied", "Interview Phase", "Offer Given"],
+		labels: labels,
 		datasets: [
 			{
-				label: "# of Votes",
-				data: [12, 19, 3],
+				label: "# of Applications",
+				data: [12, 19, 3, 1],
 				backgroundColor: [
 					`${accentVariations[0]}`,
 					`${accentVariations[1]}`,
 					`${accentVariations[2]}`,
+					`${accentVariations[3]}`,
 				],
 				borderColor: [
 					`${accentVariations[0]}`,
 					`${accentVariations[1]}`,
 					`${accentVariations[2]}`,
+					`${accentVariations[3]}`,
 				],
 				borderWidth: 1,
 			},
@@ -41,7 +48,7 @@ const DonutChart = ({ colors }) => {
 	};
 
 	return (
-		<div className="w-full h-fit ">
+		<div className="w-full h-fit border">
 			<Doughnut data={data} options={options} />
 		</div>
 	);

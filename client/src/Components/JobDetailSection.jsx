@@ -16,7 +16,10 @@ const JobDetailSection = ({ displayedContent }) => {
 			relative flex flex-col justify-center items-center bg-primary 
 			w-3/4 text-info lg:py-4 lg:px-12 lg:flex-row">
 			{applicationCard()}
-			<div className="border w-full h-[700px] ml-6 rounded-xl border-secondary">
+			<div
+				className="
+				border w-[400px] h-fit rounded-xl border-secondary shadow-lg my-4
+				lg:ml-6 ">
 				<DataVisualization />
 			</div>
 		</div>
@@ -25,23 +28,26 @@ const JobDetailSection = ({ displayedContent }) => {
 	function applicationCard() {
 		return (
 			<div
-				className="h-fit
-				max-w-[650px] w-full lg:h-[700px] p-8 bg-primary rounded-xl border border-secondary shadow-lg
+				className="h-fit w-[400px]
+				lg:h-[700px] p-8 bg-primary rounded-xl border border-secondary shadow-lg
 				">
-				<div className="relative">
+				<div
+					className="
+					relative my-4
+					lg:my-0">
 					<Edit
 						className="absolute right-0 top-0 text-secondary cursor-pointer"
 						size="1.25em"
 						onClick={editJobDetail}
 					/>
 					<h2
-						className="font-display text-xl w-full text-center pt-10
-						lg:text-6xl text-accent">
+						className="font-display text-2xl w-full text-center text-accent
+						lg:text-6xl lg:pt-10">
 						{displayedContent.companyName}
 					</h2>
 					<ul
 						className="
-						text-center mt-12">
+						text-center lg:mt-12">
 						<li>
 							<strong className="text-accent">Role</strong>:{" "}
 							{displayedContent.jobName}

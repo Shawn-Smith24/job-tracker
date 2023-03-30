@@ -8,8 +8,9 @@ export function generateColorVariations(hexColor) {
 		return (0x1000000 + (r << 16) + (g << 8) + b).toString(16).slice(1);
 	}
 
-	const darkerAmount = 40;
-	const lighterAmount = darkerAmount * 2;
+	const darkerAmount1 = -40;
+	const darkerAmount2 = 80;
+	const lighterAmount = darkerAmount2 * 2;
 
 	const shortToLongForm = /^#([a-fA-F0-9])([a-fA-F0-9])([a-fA-F0-9])$/;
 	if (shortToLongForm.test(hexColor)) {
@@ -22,8 +23,9 @@ export function generateColorVariations(hexColor) {
 	}
 
 	const color = hexColor.slice(1);
-	const darkerColor = adjustBrightness(color, darkerAmount);
+	const darkerColor1 = adjustBrightness(color, darkerAmount1);
+	const darkerColor2 = adjustBrightness(color, darkerAmount2);
 	const lighterColor = adjustBrightness(color, lighterAmount);
 
-	return [hexColor, `#${darkerColor}`, `#${lighterColor}`];
+	return [hexColor, `#${darkerColor1}`, `#${darkerColor2}`, `#${lighterColor}`];
 }

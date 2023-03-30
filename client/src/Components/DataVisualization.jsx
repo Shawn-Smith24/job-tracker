@@ -10,18 +10,22 @@ const DataVisualization = () => {
 		accent: "#e88060",
 	};
 	return (
-		<div className="w-full h-full p-4 flex flex-col justify-center items-center ">
-			<div className="w-full h-1/2 flex flex-row justify-center items-center">
+		<div className="w-full p-4 h-full flex flex-col justify-center items-center ">
+			<div className="w-full h-1/2 border flex flex-row justify-center items-center">
 				<BarChart colors={colors} />
 			</div>
-			<div className="h-1/2 w-full flex flex-row justify-around my-6">
+			<div className="h-1/2 w-full flex border flex-row justify-around mt-4">
 				<div>
-					<h2 className="text-2xl font-display">Application Statuses</h2>
+					<h2
+						className="
+						text-xl
+						lg:text-2xl font-display">
+						Application Statuses
+					</h2>
 					<DonutChart colors={colors} />
 				</div>
-
-				<AverageSalary />
 			</div>
+			<AverageSalary />
 		</div>
 	);
 };
