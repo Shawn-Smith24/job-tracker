@@ -2,6 +2,7 @@ import "./App.css";
 import SignIn from "./Pages/SignIn";
 import Landing from "./Pages/Landing";
 import Dashboard from "./Pages/Dashboard";
+import SignUp from "./Pages/SignUp";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ModalProvider } from "./Components/ContextProviders/ModalContext";
 import { ApplicationsProvider } from "./Components/ContextProviders/ApplicationsContext"; // Import ApplicationsProvider
@@ -17,7 +18,8 @@ function App() {
 				<Router>
 					<Routes>
 						<Route path="/landing" element={<Landing />} />
-						<Route path="/" element={<SignIn />} />
+						<Route path="/signin" element={<SignIn />} />
+						<Route path="/signup" element={<SignUp />} />
 						<Route
 							path="/dashboard"
 							element={
