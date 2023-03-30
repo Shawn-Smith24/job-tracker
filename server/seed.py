@@ -13,19 +13,24 @@ from models import db, User, Application, Job, Company
 
 fake = Faker()
 
+JOB_QTY = 5
+USER_QTY = 3
+APPLICATION_QTY =4
+COMPANY_QTY = 6
+
 print("Seeding jobs...")
 def make_jobs():
     Job.query.delete()
             
     jobs = []
             
-    for i in range(20):
+    for i in range(JOB_QTY):
         job = Job(
-            id = randint(1, 100000),
+            id = i+1,
             job_name = fake.company(),
             location = fake.city(),
             salary = randint(10000, 100000),
-            experience_level = randint(1, 10)
+            experience_level = randint(1, 2)
         )
         jobs.append(job)
         
@@ -39,9 +44,9 @@ def make_company():
             
     companies = []
             
-    for i in range(20):
+    for i in range(COMPANY_QTY):
         company = Company(
-            id = randint(1, 100000),
+            id = i+1,
             company_name = fake.company(),
             company_bio = fake.text()
         )
@@ -56,9 +61,9 @@ def make_users():
             
     users = []
             
-    for i in range(20):
+    for i in range(USER_QTY):
         user = User(
-            id = randint(1, 100000),
+            id = i+1,
             username = fake.name(),
             password = fake.password()
         )
@@ -73,12 +78,12 @@ def make_applications():
             
     applications = []
             
-    for i in range(20):
+    for i in range(APPLICATION_QTY):
         application = Application(
-            id = randint(1, 100000),
+            id = i+1,
             status = randint(1, 3),
-            user_id = randint(1, 100000),
-            job_id = randint(1, 100000)
+            user_id = randint(1, USER_QTY),
+            job_id = randint(1, JOB_QTY)
         )
         applications.append(application)
         

@@ -18,7 +18,7 @@ db = SQLAlchemy(metadata=metadata)
 class User(db.Model, SerializerMixin):
     __tablename__ = 'users'
 
-    serialize_rules = ('-application.user_id', )
+    serialize_rules = ('-applied.user', '-applied.job')
 
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String)
@@ -26,6 +26,7 @@ class User(db.Model, SerializerMixin):
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())
 
+    # a list of application objects for a given user 
     applied = db.relationship('Application', backref='user')
     
     # @validates('username')
@@ -44,7 +45,6 @@ class User(db.Model, SerializerMixin):
 class Application(db.Model, SerializerMixin):
 
     __tablename__ = 'applications'
-
     id = db.Column(db.Integer, primary_key=True)
     status = db.Column(db.Integer)
     created_at = db.Column(db.DateTime, server_default=db.func.now())
@@ -60,9 +60,9 @@ class Application(db.Model, SerializerMixin):
 class Job(db.Model, SerializerMixin):
 
     __tablename__ = 'jobs'
-
-    serialize_rules = ('-application.job_id', '-company.company.id')
-
+    serialize_rules = ('-application.job','-company.job')
+    
+    
     id = db.Column(db.Integer, primary_key=True)
     job_name = db.Column(db.String)
     location = db.Column(db.String)
@@ -83,7 +83,7 @@ class Company(db.Model, SerializerMixin):
 
     __tablename__ = 'companies'
 
-    serialize_rules = ('-job.company_id',)
+    serialize_rules = ('-job.company',)
 
     id = db.Column(db.Integer, primary_key=True)
     company_name = db.Column(db.String)
@@ -91,3 +91,4 @@ class Company(db.Model, SerializerMixin):
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())
 
+    
