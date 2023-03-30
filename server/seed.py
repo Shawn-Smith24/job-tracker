@@ -13,10 +13,14 @@ from models import db, User, Application, Job, Company
 
 fake = Faker()
 
-JOB_QTY = 10
-USER_QTY = 1
+
+companies = ["Apple", "Amazon", "Google", "Netflix", "Sony", "EA", "Microsoft", "Airbnb", "Pinterest", "Tesla", "Twitter", "Meta", "Tik Tok"]
+jobs = ["Frontend Engineer", "Backend Engineer", "Fullstack Engineer", "UX/UI Designer", "Dev Ops", "Project Manager"]
+users = ["Madison_Evans"]
+COMPANY_QTY = len(companies)
+JOB_QTY = len(jobs)
 APPLICATION_QTY =10
-COMPANY_QTY = 10
+USER_QTY = len(users)
 
 print("Seeding jobs...")
 def make_jobs():
@@ -27,7 +31,7 @@ def make_jobs():
     for i in range(JOB_QTY):
         job = Job(
             id = i+1,
-            job_name = fake.company(),
+            job_name = "Frontend Engineer",
             location = fake.city(),
             salary = randint(10000, 100000),
             experience_level = randint(1, 2), 
@@ -48,7 +52,7 @@ def make_company():
     for i in range(COMPANY_QTY):
         company = Company(
             id = i+1,
-            company_name = fake.company(),
+            company_name = "Apple",
             company_bio = fake.text()
         )
         companies.append(company)
