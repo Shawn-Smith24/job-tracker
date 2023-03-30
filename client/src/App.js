@@ -5,7 +5,7 @@ import Dashboard from "./Pages/Dashboard";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ModalProvider } from "./Components/ContextProviders/ModalContext";
 import { ApplicationsProvider } from "./Components/ContextProviders/ApplicationsContext"; // Import ApplicationsProvider
-
+import { JobsProvider } from "./Components/ContextProviders/JobsContext";
 function App() {
 	return (
 		<div className="h-screen w-full fixed bg-primary">
@@ -18,9 +18,11 @@ function App() {
 							path="/dashboard"
 							element={
 								<ApplicationsProvider>
-									{" "}
-									{/* Wrap Dashboard with ApplicationsProvider */}
-									<Dashboard />
+									<JobsProvider>
+										{" "}
+										{/* Wrap Dashboard with ApplicationsProvider */}
+										<Dashboard />
+									</JobsProvider>
 								</ApplicationsProvider>
 							}
 						/>

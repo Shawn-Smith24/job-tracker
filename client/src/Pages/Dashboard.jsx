@@ -7,6 +7,10 @@ import Modal from "../Components/Modal";
 import ModalContext from "../Components/ContextProviders/ModalContext";
 import { useContext, useEffect } from "react";
 import { useApplications } from "../Components/ContextProviders/ApplicationsContext";
+import {
+	JobsProvider,
+	useJobs,
+} from "../Components/ContextProviders/JobsContext";
 
 import dummyJobs from "../DummyData/jobs.json";
 import dummyCompanies from "../DummyData/companies.json";
@@ -14,7 +18,7 @@ import dummyCompanies from "../DummyData/companies.json";
 const Dashboard = () => {
 	const { showModal } = useContext(ModalContext); // Access showModal from the context
 	const { applications, setApplications } = useApplications();
-	const [jobs, setJobs] = useState(null);
+	const { jobs, setJobs } = useJobs(); // Retrieve jobs and setJobs from the context
 	const [companies, setCompanies] = useState(null);
 	const [displayedContent, setDisplayedContent] = useState({
 		jobName: "",
@@ -34,7 +38,6 @@ const Dashboard = () => {
 			.then((res) => res.json())
 			.then((user) => {
 				setApplications(user.applied);
-
 				console.log("user", user);
 			});
 	}
@@ -55,22 +58,24 @@ const Dashboard = () => {
 			<div className="w-full h-full flex flex-col">
 				<Navigation />
 				{showModal && <Modal />}
-				{companies && jobs && applications && displayedContent && (
-					<div
-						className="
-						w-full h-full flex flex-row">
-						<div className="w-1/4 h-full shadow-lg border-r border-r-secondary">
-							<List
-								applications={applications}
-								setDisplayedContent={setDisplayedContent}
-								displayedContent={displayedContent}
-							/>{" "}
+				<JobsProvider>
+					{" "}
+					{companies && jobs && applications && displayedContent && (
+						<div className="w-full h-full flex flex-row">
+							<div className="w-1/4 h-full shadow-lg border-r border-r-secondary">
+								<List
+									applications={applications}
+									setDisplayedContent={setDisplayedContent}
+									displayedContent={displayedContent}
+								/>
+							</div>
+							<JobDetailSection displayedContent={displayedContent} />
 						</div>
-						<JobDetailSection displayedContent={displayedContent} />
-					</div>
-				)}
+					)}
+				</JobsProvider>
 			</div>
 		</>
 	);
 };
+
 export default Dashboard;
