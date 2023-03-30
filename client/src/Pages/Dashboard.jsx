@@ -14,7 +14,6 @@ import dummyCompanies from "../DummyData/companies.json";
 const Dashboard = () => {
 	const { showModal } = useContext(ModalContext); // Access showModal from the context
 	const { applications, setApplications } = useApplications();
-
 	const [jobs, setJobs] = useState(null);
 	const [companies, setCompanies] = useState(null);
 	const [displayedContent, setDisplayedContent] = useState({

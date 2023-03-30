@@ -7,6 +7,16 @@ const ListItem = ({ application, setDisplayedContent, displayedContent }) => {
 	const [company, setCompany] = useState(null);
 
 	function showJobDetails() {
+		let applicationStatus = "";
+		if (application.status === 1) {
+			applicationStatus = "Applied";
+		} else if (application.status === 2) {
+			applicationStatus = "Interviewing";
+		} else if (application.status === 3) {
+			applicationStatus = "Offer Given";
+		} else if (application.status === 3) {
+			applicationStatus = "Application Rejected";
+		}
 		if (job) {
 			setDisplayedContent({
 				jobName: job.job_name,
@@ -14,6 +24,7 @@ const ListItem = ({ application, setDisplayedContent, displayedContent }) => {
 				salary: job.salary,
 				expLevel: job.experience_level,
 				location: job.location,
+				applicationStatus: applicationStatus,
 			});
 		}
 	}

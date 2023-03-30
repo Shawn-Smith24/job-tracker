@@ -1,8 +1,41 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import BarChart from "./BarChart";
 import DonutChart from "./DonutChart";
 import AverageSalary from "./AverageSalary";
+import { useApplications } from "./ContextProviders/ApplicationsContext";
+
 const DataVisualization = () => {
+	const { applications, setApplications } = useApplications();
+	const [statusAggregate, setStatusAggregate] = useState({
+		applied: 0,
+		interview: 0,
+		offer: 0,
+		rejected: 0,
+	});
+
+	function updateStatuses() {
+		if (applications) {
+			applications.forEach((app) => {
+				switch (app.status) {
+					case 1:
+						setStatusAggregate((prevState) => ({
+							...prevState,
+							applied: prevState.applied + 1,
+						}));
+						break;
+					default:
+						break;
+				}
+			});
+		}
+	}
+
+	useEffect(() => {
+		updateStatuses();
+		console.log("updateStatuses", statusAggregate);
+	}, [applications]);
+
+	console.log("in the DataVisualization section", applications);
 	const colors = {
 		primary: "#273248",
 		secondary: "#69758C",

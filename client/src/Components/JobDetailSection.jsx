@@ -73,6 +73,7 @@ const JobDetailSection = ({ displayedContent }) => {
 							lg:text-4xl text-center lg:mt-6 text-accent">
 							Application Status
 						</h2>
+						<p>{displayedContent.applicationStatus}</p>
 					</div>
 					{/* <Timeline /> */}
 				</div>
