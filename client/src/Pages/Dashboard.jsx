@@ -10,7 +10,7 @@ import { useJobs } from "../Components/ContextProviders/JobsContext";
 import { useCompanies } from "../Components/ContextProviders/CompaniesContext";
 import dummyCompanies from "../DummyData/companies.json";
 
-const Dashboard = () => {
+const Dashboard = ({ userId }) => {
 	const { showModal } = useContext(ModalContext); // Access showModal from the context
 	const { applications, setApplications } = useApplications();
 	const { jobs } = useJobs(); // Retrieve jobs and setJobs from the context
@@ -25,7 +25,7 @@ const Dashboard = () => {
 	});
 
 	function getApplications() {
-		fetch("/users/1", {
+		fetch(`/users/${userId}`, {
 			method: "GET",
 			headers: {
 				Accept: "application/json",

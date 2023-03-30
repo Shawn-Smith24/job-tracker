@@ -7,7 +7,10 @@ import { ModalProvider } from "./Components/ContextProviders/ModalContext";
 import { ApplicationsProvider } from "./Components/ContextProviders/ApplicationsContext"; // Import ApplicationsProvider
 import { CompaniesProvider } from "./Components/ContextProviders/CompaniesContext";
 import { JobsProvider } from "./Components/ContextProviders/JobsContext";
+import { useState } from "react";
 function App() {
+	// TODO: This will change when we add user authentication
+	const [userId, setUserId] = useState(1);
 	return (
 		<div className="h-screen w-full fixed bg-primary">
 			<ModalProvider>
@@ -21,9 +24,7 @@ function App() {
 								<ApplicationsProvider>
 									<JobsProvider>
 										<CompaniesProvider>
-											{" "}
-											{/* Wrap Dashboard with ApplicationsProvider */}
-											<Dashboard />
+											<Dashboard userId={userId} />
 										</CompaniesProvider>
 									</JobsProvider>
 								</ApplicationsProvider>
