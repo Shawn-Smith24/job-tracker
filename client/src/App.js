@@ -11,8 +11,8 @@ function App() {
 			<ModalProvider>
 				<Router>
 					<Routes>
-						<Route path="/" element={<Landing />} />
-						<Route path="/signin" element={<SignIn />} />
+						<Route path="/landing" element={<Landing />} />
+						<Route path="/" element={<SignIn />} />
 						<Route path="/dashboard" element={<Dashboard />} />
 					</Routes>
 				</Router>
