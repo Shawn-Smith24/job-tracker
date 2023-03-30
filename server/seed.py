@@ -13,10 +13,10 @@ from models import db, User, Application, Job, Company
 
 fake = Faker()
 
-JOB_QTY = 5
-USER_QTY = 3
-APPLICATION_QTY =4
-COMPANY_QTY = 6
+JOB_QTY = 10
+USER_QTY = 1
+APPLICATION_QTY =10
+COMPANY_QTY = 10
 
 print("Seeding jobs...")
 def make_jobs():
