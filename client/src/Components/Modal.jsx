@@ -27,10 +27,20 @@ const Modal = () => {
 
 	return (
 		<div className="absolute w-full h-full bg-[#000000D9] z-50 ">
-			<div className="w-full h-1/2 relative">
+			<div className="w-full h-full relative">
 				<div className="text-secondary flex flex-col items-center justify-center p-4 absolute rounded-xl bg-primary w-3/4 h-5/6 top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2">
 					<form onSubmit={handleSubmit}>
 						<div className="space-y 4">
+							{/* TODO: enter company name */}
+							<input
+								className="placeholder-secondary my-2 w-full p-2 border border-secondary rounded"
+								type="text"
+								name="input2"
+								value={formData.input2}
+								onChange={handleChange}
+								placeholder="Enter Name of Company"
+							/>
+							{/* TODO: choose role */}
 							<select
 								className="w-full p-2 border border-secondary rounded"
 								name="input1"
@@ -43,30 +53,64 @@ const Modal = () => {
 								<option value="Backend">Backend</option>
 								<option value="FullStack">FullStack</option>
 							</select>
+
+							{/* TODO: enter salary */}
 							<input
 								className="placeholder-secondary my-2 w-full p-2 border border-secondary rounded"
 								type="text"
 								name="input2"
 								value={formData.input2}
 								onChange={handleChange}
-								placeholder="Input 2"
+								placeholder="Enter Salary for this role"
 							/>
+							{/* TODO: enter Location */}
 							<input
-								className="placeholder-secondary w-full p-2 border  border-secondary rounded"
+								className="placeholder-secondary mb-2 w-full p-2 border border-secondary rounded"
 								type="text"
-								name="input3"
-								value={formData.input3}
+								name="input2"
+								value={formData.input2}
 								onChange={handleChange}
-								placeholder="Input 3"
+								placeholder="Enter the location for this role"
 							/>
-							<input
-								className="placeholder-secondary w-full p-2 mt-2 border border-secondary rounded "
-								type="text"
-								name="input4"
-								value={formData.input4}
-								onChange={handleChange}
-								placeholder="Input 4"
-							/>
+							{/* TODO: Enter Experience Level */}
+							<select
+								className="placeholder-secondary mb-2 w-full p-2 border border-secondary rounded"
+								name="input1"
+								value={formData.input1}
+								onChange={handleChange}>
+								<option value="" disabled selected>
+									Enter Experience Level required for this role
+								</option>
+								<option value="Frontend">Frontend</option>
+								<option value="Backend">Backend</option>
+								<option value="FullStack">FullStack</option>
+							</select>
+							{/* TODO: Is it remote? */}
+							<select
+								className="placeholder-secondary mb-2 w-full p-2 border border-secondary rounded"
+								name="input1"
+								value={formData.input1}
+								onChange={handleChange}>
+								<option value="" disabled selected>
+									Is this a remote position?
+								</option>
+								<option value="Frontend">Frontend</option>
+								<option value="Backend">Backend</option>
+								<option value="FullStack">FullStack</option>
+							</select>
+							{/* TODO: Application Status */}
+							<select
+								className="w-full p-2 border border-secondary rounded"
+								name="input1"
+								value={formData.input1}
+								onChange={handleChange}>
+								<option value="" disabled selected>
+									Application Status
+								</option>
+								<option value="Frontend">Frontend</option>
+								<option value="Backend">Backend</option>
+								<option value="FullStack">FullStack</option>
+							</select>
 						</div>
 						<div className="flex justify-center mt-4 space-x-4 w-full">
 							<button

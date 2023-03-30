@@ -53,9 +53,7 @@ const Dashboard = () => {
 		<>
 			<div className="w-full h-full flex flex-col">
 				<Navigation />
-				{showModal && (
-					<Modal className="absolute" style={{ display: "block" }} />
-				)}
+				{showModal && <Modal />}
 				{/* conditional rendering for companies route */}
 				{companies && jobs && applications && displayedContent && (
 					<div className="w-full h-full flex flex-row">
