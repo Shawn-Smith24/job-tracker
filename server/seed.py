@@ -19,15 +19,11 @@ job_list = ["Frontend Engineer", "Backend Engineer", "Fullstack Engineer", "UX/U
 
 users = [
         {
-            'name': 'John Doe',
-            'email': 'john@example.com',
-            'password': 'password1',
+            'name': 'Madison Evans',
+            'email': 'm.corbinevans@gmail.com',
+            'password': 'holliejo1',
         },
-        {
-            'name': 'Jane Doe',
-            'email': 'jane@example.com',
-            'password': 'password2',
-        },
+
     ]
 COMPANY_QTY = len(company_list)
 JOB_QTY = 50
