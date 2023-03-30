@@ -11,10 +11,6 @@ metadata = MetaData(naming_convention={
 
 db = SQLAlchemy(metadata=metadata)
 
-
-# Models go here!
-
-
 class User(db.Model, SerializerMixin):
     __tablename__ = 'users'
 
@@ -67,13 +63,13 @@ class Job(db.Model, SerializerMixin):
     job_name = db.Column(db.String)
     location = db.Column(db.String)
     salary = db.Column(db.Integer)
-    experience_level = db.Column(db.Integer)
+    experience_level = db.Column(db.String)
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())
 
     company_id = db.Column(db.Integer, db.ForeignKey('companies.id'))
 
-   # relationships
+    # relationships
     # applications = db.relationship('Application', backref='job')
     company = db.relationship('Company', backref='job')
 

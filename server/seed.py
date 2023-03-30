@@ -28,15 +28,14 @@ def make_jobs(job_list = job_list):
     Job.query.delete()
             
     jobs = []
-      
-          
+    exp_level_list = ["Junior", "Mid-Level", "Senior"]
     for i in range(JOB_QTY):
         job = Job(
             id = i+1,
-            job_name = job_list[i],
+            job_name = job_list[randint(0,JOB_QTY-1)],
             location = fake.city(),
             salary = randint(10000, 100000),
-            experience_level = randint(1, 2), 
+            experience_level = exp_level_list[randint(0, 2)], 
             company_id = randint(1, COMPANY_QTY) 
         )
         jobs.append(job)
@@ -54,7 +53,7 @@ def make_company(company_list = company_list):
         company = Company(
             id = i+1,
             company_name = company_list[i],
-            company_bio = fake.text()
+            # company_bio = fake.text()
         )
         companies.append(company)
         
@@ -87,7 +86,7 @@ def make_applications():
     for i in range(APPLICATION_QTY):
         application = Application(
             id = i+1,
-            status = randint(1, 3),
+            status = randint(0, 3),
             user_id = randint(1, USER_QTY),
             job_id = randint(1, JOB_QTY)
         )
