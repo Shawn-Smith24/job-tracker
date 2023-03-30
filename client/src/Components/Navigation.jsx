@@ -22,7 +22,7 @@ const Navigation = () => {
 			/>
 			<div className="cursor-pointer absolute right-0 w-fit pr-6 text-info top-1/2 -translate-y-1/2 ">
 				{/* [ ] implement a session logout here */}
-				<Link to="/signin">
+				<Link to="/">
 					<Logout
 						size="2em"
 						className="text-info hover:text-accent transition-colors"

@@ -10,16 +10,20 @@ const DataVisualization = () => {
 		accent: "#e88060",
 	};
 	return (
-		<div className="w-full p-4 h-full flex flex-col justify-center items-center ">
+		<div className="w-full p-4 lg:h-[600px] flex flex-col justify-center items-center ">
 			<div className="w-full h-1/2 flex flex-row justify-center items-center">
 				<BarChart colors={colors} />
 			</div>
 			<div className="h-1/2 w-full flex flex-row justify-around mt-4">
-				<div className="w-full h-fit flex flex-col justify-center items-center">
+				<div
+					className="
+					w-full h-fit flex flex-col justify-center items-center
+					">
 					<h2
 						className="
-						text-xl text-center
-						lg:text-2xl font-display">
+						text-lg text-center
+						md:text-xl
+						xl:text-2xl font-display">
 						Application Statuses
 					</h2>
 					<DonutChart colors={colors} />
