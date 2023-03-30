@@ -17,42 +17,34 @@ import { useContext, useEffect } from "react";
 import dummyApps from "../DummyData/applications.json";
 import dummyJobs from "../DummyData/jobs.json";
 import dummyCompanies from "../DummyData/companies.json";
-const BASE_URL = process.env.REACT_APP_MOCK_API_URL;
-const Dashboard = () => {
-	const { showModal } = useContext(ModalContext); // Access showModal from the context
 
-	// TODO: use the backref property of the current user to get list of application objects
+const Dashboard = ({ userId }) => {
+	const { showModal } = useContext(ModalContext); // Access showModal from the context
 	const [applications, setApplications] = useState(null);
-	// TODO: for each application, do a fetch request to /jobs/<int:job_id> and store in state jobs
+
 	const [jobs, setJobs] = useState(null);
-	// TODO: for each job, get the company via company_id
+
 	const [companies, setCompanies] = useState(null);
 
 	const [displayedApp, setDisplayedApp] = useState(dummyApps[0]);
-	// this code will mimic the call to the server
+	function getApplications() {
+		fetch("/users/1")
+			.then((res) => res.json())
+			.then((user) => {
+				setApplications(user.applied);
+
+				console.log("user", user);
+			});
+	}
+
 	useEffect(() => {
-		setApplications(dummyApps);
 		setJobs(dummyJobs);
 		setCompanies(dummyCompanies);
 	}, []);
 
 	useEffect(() => {
-		// all of user 1's applications
-		fetch("/users/1")
-			.then((res) => res.json())
-			.then((user) => console.log(user.applied));
-		fetch("/jobs/1")
-			.then((res) => res.json())
-			.then((job) => console.log(job));
+		getApplications();
 	}, []);
-
-	// useEffect(() => {
-	// 	fetch(`${BASE_URL}/companies`)
-	// 		.then((response) => response.json())
-	// 		.then((companiesList) => {
-	// 			setCompanies(companiesList);
-	// 		});
-	// });
 
 	console.log("companies List: ", companies);
 	return (
