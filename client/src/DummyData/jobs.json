@@ -1,0 +1,50 @@
+[
+	{
+		"job_id": 1,
+		"role": "frontend",
+		"location": "Atlanta, GA",
+		"salary": 100000,
+		"company_id": 1,
+		"experience_level": 0
+	},
+	{
+		"job_id": 2,
+		"role": "frontend",
+		"location": "Dallas, TX",
+		"salary": 80000,
+		"company_id": 2,
+		"experience_level": 1
+	},
+	{
+		"job_id": 3,
+		"role": "backend",
+		"location": "New York, NY",
+		"salary": 110000,
+		"company_id": 4,
+		"experience_level": 2
+	},
+	{
+		"job_id": 4,
+		"role": "full-stack",
+		"location": "Paris, France",
+		"salary": 60000,
+		"company_id": 6,
+		"experience_level": 0
+	},
+	{
+		"job_id": 5,
+		"role": "frontend",
+		"location": "San Francisco, CA",
+		"salary": 150000,
+		"company_id": 3,
+		"experience_level": 2
+	},
+	{
+		"job_id": 6,
+		"role": "backend",
+		"location": "Atlanta, GA",
+		"salary": 70000,
+		"company_id": 3,
+		"experience_level": 2
+	}
+]
