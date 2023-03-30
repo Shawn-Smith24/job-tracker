@@ -52,6 +52,8 @@ const Modal = () => {
 								<option value="Frontend">Frontend</option>
 								<option value="Backend">Backend</option>
 								<option value="FullStack">FullStack</option>
+								<option value="UX/UI">UX/UI</option>
+								<option value="Dev-Ops">Dev-Ops</option>
 							</select>
 
 							{/* TODO: enter salary */}
@@ -75,15 +77,15 @@ const Modal = () => {
 							{/* TODO: Enter Experience Level */}
 							<select
 								className="placeholder-secondary mb-2 w-full p-2 border border-secondary rounded"
-								name="input1"
+								name="input3"
 								value={formData.input1}
 								onChange={handleChange}>
 								<option value="" disabled selected>
 									Enter Experience Level required for this role
 								</option>
-								<option value="Frontend">Frontend</option>
-								<option value="Backend">Backend</option>
-								<option value="FullStack">FullStack</option>
+								<option value="Junior">Junior</option>
+								<option value="Mid-Level">Mid-Level</option>
+								<option value="Senior">Senior</option>
 							</select>
 							{/* TODO: Is it remote? */}
 							<select
@@ -94,9 +96,8 @@ const Modal = () => {
 								<option value="" disabled selected>
 									Is this a remote position?
 								</option>
-								<option value="Frontend">Frontend</option>
-								<option value="Backend">Backend</option>
-								<option value="FullStack">FullStack</option>
+								<option value="Yes">Yes</option>
+								<option value="No">No</option>
 							</select>
 							{/* TODO: Application Status */}
 							<select
@@ -107,9 +108,13 @@ const Modal = () => {
 								<option value="" disabled selected>
 									Application Status
 								</option>
-								<option value="Frontend">Frontend</option>
-								<option value="Backend">Backend</option>
-								<option value="FullStack">FullStack</option>
+								<option value="Apllied">Applied</option>
+								<option value="Interview 1">Interview 1</option>
+								<option value="Interview 2">Interview 2</option>
+								<option value="Offer Received">Offer Recieved</option>
+								<option value="Application Rejected">
+									Application Rejected
+								</option>
 							</select>
 						</div>
 						<div className="flex justify-center mt-4 space-x-4 w-full">
