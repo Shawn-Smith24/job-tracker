@@ -32,12 +32,12 @@ const JobDetailSection = ({ displayedContent }) => {
 						onClick={editJobDetail}
 					/>
 					<h2 className="font-display text-6xl w-full text-center pt-10 text-accent">
-						{displayedContent.jobName}
+						{displayedContent.companyName}
 					</h2>
 					<ul className="text-center mt-12">
 						<li>
-							<strong className="text-accent">Company</strong>:{" "}
-							{displayedContent.companyName}
+							<strong className="text-accent">Role</strong>:{" "}
+							{displayedContent.jobName}
 						</li>
 						<li>
 							<strong className="text-accent">Location</strong>:
