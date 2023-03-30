@@ -13,11 +13,14 @@ import dummyCompanies from "../DummyData/companies.json";
 const Dashboard = () => {
 	const { showModal } = useContext(ModalContext); // Access showModal from the context
 	const [applications, setApplications] = useState(null);
-
 	const [jobs, setJobs] = useState(null);
-
 	const [companies, setCompanies] = useState(null);
-	const [displayedContent, setDisplayedContent] = useState(null);
+	const [displayedContent, setDisplayedContent] = useState({
+		jobName: "asdf",
+		companyName: "asdf",
+		salary: 123,
+		expLevel: 1,
+	});
 
 	function getApplications() {
 		fetch("/users/1", {
@@ -34,9 +37,7 @@ const Dashboard = () => {
 			});
 	}
 
-	useEffect(() => {
-		console.log(displayedContent);
-	}, [displayedContent]);
+	useEffect(() => {}, [displayedContent]);
 	useEffect(() => {
 		setJobs(dummyJobs);
 		setCompanies(dummyCompanies);
@@ -55,7 +56,7 @@ const Dashboard = () => {
 					<Modal className="absolute" style={{ display: "block" }} />
 				)}
 				{/* conditional rendering for companies route */}
-				{companies && jobs && applications && (
+				{companies && jobs && applications && displayedContent && (
 					<div className="w-full h-full flex flex-row">
 						<div className="w-96 h-full shadow-lg border-r border-r-secondary">
 							<List

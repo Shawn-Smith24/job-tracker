@@ -8,8 +8,6 @@ const JobDetailSection = ({ displayedContent }) => {
 	const { setShowModal } = useContext(ModalContext);
 
 	function editJobDetail() {
-		// [ ] implement job detail editing
-		console.log("Edit Job Detail");
 		setShowModal(true);
 	}
 	return (
