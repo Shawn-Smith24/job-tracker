@@ -27,9 +27,6 @@ class Home(Resource):
     def get(self):
         return {'message': 'Welcome to the Job Board API!'}
 
-api.add_resource(Home, '/')
-
-
 class Jobs(Resource):
     def get(self):
 
@@ -63,10 +60,6 @@ class Jobs(Resource):
             201,
         )
         return response
-
-
-api.add_resource(Jobs, '/jobs/')
-
 
 class JobsbyID(Resource):
     def get(self, id):
@@ -118,10 +111,6 @@ class JobsbyID(Resource):
 
         return response
 
-
-api.add_resource(JobsbyID, '/jobs/<int:id>')
-
-
 class Users(Resource):
     def get(self):
 
@@ -153,8 +142,6 @@ class Users(Resource):
         )
         return response
     
-api.add_resource(Users, '/users/')
-
 class UsersbyID(Resource):
     def get(self, id):
 
@@ -205,9 +192,6 @@ class UsersbyID(Resource):
 
         return response
     
-api.add_resource(UsersbyID, '/users/<int:id>')
-
-
 class Applications(Resource):
     def get(self):
 
@@ -239,8 +223,6 @@ class Applications(Resource):
         )
         return response
     
-api.add_resource(Applications, '/applications/')
-
 class ApplicationsByID(Resource):
     def get(self, id):
 
@@ -289,11 +271,7 @@ class ApplicationsByID(Resource):
             204,
         )
 
-        return response
-    
-api.add_resource(ApplicationsByID, '/applications/<int:id>/')
-    
-    
+        return response 
 class Companies(Resource):
     def get(self):
 
@@ -323,11 +301,7 @@ class Companies(Resource):
             jsonify(response_dict),
             201,
         )
-        return response
-    
-api.add_resource(Companies, '/companies/')
-
-
+        return response   
 class CompaniesByID(Resource):
     def get(self, id):
 
@@ -377,9 +351,16 @@ class CompaniesByID(Resource):
         )
 
         return response
-    
+
+api.add_resource(ApplicationsByID, '/applications/<int:id>/')   
 api.add_resource(CompaniesByID, '/companies/<int:id>/')
-# Views go here!
+api.add_resource(Companies, '/companies/')
+api.add_resource(Applications, '/applications/')
+api.add_resource(UsersbyID, '/users/<int:id>')
+api.add_resource(Users, '/users/')
+api.add_resource(JobsbyID, '/jobs/<int:id>')
+api.add_resource(Jobs, '/jobs/')
+api.add_resource(Home, '/')
 
 if __name__ == '__main__' : 
     app.run(port=5555, debug=True)
