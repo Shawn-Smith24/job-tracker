@@ -14,9 +14,9 @@ from models import db, User, Application, Job, Company
 fake = Faker()
 
 
-company_list = ["Apple", "Amazon", "Google", "Netflix", "Sony", "EA", "Microsoft", "Airbnb", "Pinterest", "Tesla", "Twitter", "Meta", "Tik Tok", "Youtube", "Reddit", "Instagram", "Honda", "Waymo", "Twilio"]
-job_list = ["Frontend Engineer", "Backend Engineer", "Fullstack Engineer", "UX/UI Designer", "Dev Ops", "Project Manager"]
-user_list = ["Madison_Evans"]
+company_list = ["Apple", "Amazon", "Google", "Netflix", "Sony", "EA", "Microsoft", "Airbnb", "Pinterest", "Tesla", "Twitter", "Meta", "Tik Tok", "Youtube", "Reddit", "Instagram", "Honda", "Waymo", "Twilio",]
+job_list = ["Frontend Engineer", "Backend Engineer", "Fullstack Engineer", "UX/UI Designer", "Dev Ops", "Project Manager",]
+user_list = ["Madison_Evans",]
 
 COMPANY_QTY = len(company_list)
 JOB_QTY = len(job_list)
