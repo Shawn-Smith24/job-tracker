@@ -18,7 +18,7 @@ db = SQLAlchemy(metadata=metadata)
 class User(db.Model, SerializerMixin):
     __tablename__ = 'users'
 
-    serialize_rules = ('-application.user_id',)
+    serialize_rules = ('-application.user_id', )
 
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String)
@@ -28,17 +28,17 @@ class User(db.Model, SerializerMixin):
 
     applied = db.relationship('Application', backref='user')
     
-    @validates('username')
-    def validates_username(self,key,username):
-        if not username or len(username) > 5 and len(username) < 50:
-            raise AssertionError('Username must be between 5 and 50 characters.')
-        return username
+    # @validates('username')
+    # def validates_username(self,key,username):
+    #     if not username or len(username) > 5 and len(username) < 50:
+    #         raise AssertionError('Username must be between 5 and 50 characters.')
+    #     return username
 
-    @validates('password')
-    def validates_password(self,key,password):
-        if not password or len(password) > 10 and len(password) < 50:
-            raise AssertionError('Password must be between 5 and 50 characters.')
-        return password
+    # @validates('password')
+    # def validates_password(self,key,password):
+    #     if not password or len(password) > 10 and len(password) < 50:
+    #         raise AssertionError('Password must be between 5 and 50 characters.')
+    #     return password
     
 
 class Application(db.Model, SerializerMixin):
