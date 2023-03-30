@@ -36,6 +36,16 @@ const Dashboard = () => {
 		setCompanies(dummyCompanies);
 	}, []);
 
+	useEffect(() => {
+		// all of user 1's applications
+		fetch("/users/1")
+			.then((res) => res.json())
+			.then((user) => console.log(user.applied));
+		fetch("/jobs/1")
+			.then((res) => res.json())
+			.then((job) => console.log(job));
+	}, []);
+
 	// useEffect(() => {
 	// 	fetch(`${BASE_URL}/companies`)
 	// 		.then((response) => response.json())
