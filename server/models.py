@@ -20,7 +20,8 @@ class User(db.Model, SerializerMixin):
     serialize_rules = ('-applied.user', '-applied.job')
 
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String)
+    name = db.Column(db.String)
+    email = db.Column(db.String)
     password_hash = db.Column(db.String)
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())

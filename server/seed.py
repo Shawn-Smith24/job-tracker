@@ -16,12 +16,23 @@ fake = Faker()
 
 company_list = ["Apple", "Amazon", "Google", "Netflix", "Sony", "EA", "Microsoft", "Airbnb", "Pinterest", "Tesla", "Twitter", "Meta", "Tik Tok", "Youtube", "Reddit", "Instagram", "Honda", "Waymo", "Twilio"]
 job_list = ["Frontend Engineer", "Backend Engineer", "Fullstack Engineer", "UX/UI Designer", "Dev Ops", "Project Manager"]
-user_list = ["Madison_Evans"]
 
+users = [
+        {
+            'name': 'John Doe',
+            'email': 'john@example.com',
+            'password': 'password1',
+        },
+        {
+            'name': 'Jane Doe',
+            'email': 'jane@example.com',
+            'password': 'password2',
+        },
+    ]
 COMPANY_QTY = len(company_list)
 JOB_QTY = 50
 APPLICATION_QTY =8
-USER_QTY = len(user_list)
+USER_QTY = len(users)
 
 print("Seeding jobs...")
 def make_jobs(job_list = job_list):
@@ -40,8 +51,8 @@ def make_jobs(job_list = job_list):
         )
         jobs.append(job)
         
-        db.session.add_all(jobs)
-        db.session.commit()
+    db.session.add_all(jobs)
+    db.session.commit()
         
         
 print("Seeding companies...")
@@ -53,30 +64,28 @@ def make_company(company_list = company_list):
         company = Company(
             id = i+1,
             company_name = company_list[i],
-            # company_bio = fake.text()
+            company_bio = fake.text()
         )
         companies.append(company)
         
-        db.session.add_all(companies)
-        db.session.commit()
+    db.session.add_all(companies)
+    db.session.commit()
         
 print("Seeding users...")
-def make_users(user_list=user_list):
+
+def make_users():
     User.query.delete()
     
-    users = []
-    
-    for i in range(USER_QTY):
+    for i in range(len(users)):
         user = User(
             id=i+1,
-            username=user_list[i]
+            name=users[i]['name'], 
+            email=users[i]['email'],
         )
-        user.password = "paasword"
+        user.password = users[i]['password']
+        db.session.add(user)
 
-        users.append(user)
-        
-        db.session.add_all(users)
-        db.session.commit()
+    db.session.commit()
         
 print("Seeding applications...")
 def make_applications():
@@ -93,8 +102,8 @@ def make_applications():
         )
         applications.append(application)
         
-        db.session.add_all(applications)
-        db.session.commit()
+    db.session.add_all(applications)
+    db.session.commit()
         
 if __name__ == '__main__':
     with app.app_context():

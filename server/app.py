@@ -123,24 +123,7 @@ class Users(Resource):
         )
 
         return response
-    
-    def post(self):
-        
-        new_users = User(
-            username=request.get_json()['username'],
-            password=request.get_json()['password']
-            )
-        
-        db.session.add(new_users)
-        db.session.commit()
 
-        response_dict = new_users.to_dict()
-
-        response = make_response(
-            jsonify(response_dict),
-            201,
-        )
-        return response
     
 class UsersbyID(Resource):
     def get(self, id):
@@ -361,6 +344,79 @@ api.add_resource(Users, '/users/')
 api.add_resource(JobsbyID, '/jobs/<int:id>')
 api.add_resource(Jobs, '/jobs/')
 api.add_resource(Home, '/')
+
+
+# 14.✅ Create a Signup route
+class Signup(Resource):
+    def post(self):
+        form_json = request.get_json()
+        new_user = User(name=form_json['name'], email=form_json['email'])
+        new_user.password = form_json['password']  # Use the password setter property
+        db.session.add(new_user)
+        db.session.commit()
+        response = make_response(
+            new_user.to_dict(),
+            201
+        )
+        return response
+
+api.add_resource(Signup, '/signup')
+
+
+# 15. Create a Login route
+class Login(Resource):
+    def post(self):
+        try:
+            user = User.query.filter_by(email=request.get_json()['email']).first()
+            if user == None: 
+                return make_response("this email does not exist", 404)
+            if user and user.authenticate(request.get_json()['password']):
+                session['user_id'] = user.id
+                response = make_response(
+                    user.to_dict(),
+                    200
+                )
+                return response
+        except:
+            abort(401, "Incorrect Email or Password")
+
+api.add_resource(Login, '/login')
+
+
+# 16. Create a route that checks to see if the User is currently in sessions
+class AuthorizedSession(Resource):
+    def get(self):
+        try:
+            user = User.query.filter_by(id=session['user_id']).first()
+            response = make_response(
+                user.to_dict(),
+                200
+            )
+            return response
+        except:
+            abort(401, "Unauthorized")
+
+api.add_resource(AuthorizedSession, '/authorized')
+
+# 17. Create a Logout route
+class Logout(Resource):
+    def delete(self):
+        session['user_id'] = None
+        response = make_response('', 204)
+        return response
+
+api.add_resource(Logout, '/logout')
+
+# Add this error handler at the end of your app.py file
+@app.errorhandler(NotFound)
+def handle_not_found(e):
+    response = make_response(
+        "Not Found: Sorry the resource you are looking for does not exist",
+        404
+    )
+
+    return response
+
 
 if __name__ == '__main__' : 
     app.run(port=5555, debug=True)
