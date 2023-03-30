@@ -40,8 +40,8 @@ const JobDetailSection = ({ displayedContent }) => {
 							{displayedContent.jobName}
 						</li>
 						<li>
-							<strong className="text-accent">Location</strong>:
-							displayedContent.location
+							<strong className="text-accent">Location</strong>:{" "}
+							{displayedContent.location}
 						</li>
 						<li>
 							<strong className="text-accent">Salary</strong>:{" "}

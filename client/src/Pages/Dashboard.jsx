@@ -20,6 +20,7 @@ const Dashboard = () => {
 		companyName: "",
 		salary: "",
 		expLevel: "",
+		location: "",
 	});
 
 	function getApplications() {

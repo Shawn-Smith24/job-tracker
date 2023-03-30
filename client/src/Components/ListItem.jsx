@@ -13,6 +13,7 @@ const ListItem = ({ application, setDisplayedContent, displayedContent }) => {
 				companyName: job.company.company_name,
 				salary: job.salary,
 				expLevel: job.experience_level,
+				location: job.location,
 			});
 		}
 	}
