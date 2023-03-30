@@ -36,6 +36,10 @@ const DonutChart = ({ colors }) => {
 	};
 
 	const options = {
+		aspectRatio: 2, // Set the aspect ratio here
+		layout: {
+			padding: 0, // Remove padding around the chart content
+		},
 		plugins: {
 			legend: {
 				display: true,
@@ -48,7 +52,7 @@ const DonutChart = ({ colors }) => {
 	};
 
 	return (
-		<div className="w-full h-fit border">
+		<div className="w-full h-60 mt-6">
 			<Doughnut data={data} options={options} />
 		</div>
 	);

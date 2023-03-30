@@ -29,7 +29,7 @@ const JobDetailSection = ({ displayedContent }) => {
 		return (
 			<div
 				className="h-fit w-[400px]
-				lg:h-[700px] p-8 bg-primary rounded-xl border border-secondary shadow-lg
+				lg:h-[600px] p-8 bg-primary rounded-xl border border-secondary shadow-lg
 				">
 				<div
 					className="
