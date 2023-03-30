@@ -1,4 +1,11 @@
-export default function Landing() {
+import React from "react";
+import { useEffect } from "react";
+const Landing = () => {
+	useEffect(() => {
+		fetch("/users")
+			.then((response) => response.json())
+			.then((data) => console.log(data));
+	}, []);
 	return (
 		<div className="bg-white">
 			<div className="mx-auto max-w-7xl py-24 px-6 sm:py-32 lg:px-8">
@@ -22,4 +29,5 @@ export default function Landing() {
 			</div>
 		</div>
 	);
-}
+};
+export default Landing;
