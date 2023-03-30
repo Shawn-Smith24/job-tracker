@@ -27,7 +27,7 @@ const Modal = () => {
 	};
 
 	return (
-		<div className="absolute w-full h-full bg-[#000000D9] z-50 ">
+		<div className="absolute w-full h-full bg-modal z-50 ">
 			<div className="w-full h-full relative">
 				<motion.div
 					initial={{
