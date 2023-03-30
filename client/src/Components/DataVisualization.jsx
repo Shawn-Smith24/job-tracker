@@ -59,7 +59,7 @@ const DataVisualization = () => {
 						xl:text-2xl font-display">
 						Application Statuses
 					</h2>
-					<DonutChart colors={colors} />
+					<DonutChart colors={colors} applications={applications} />
 				</div>
 			</div>
 			<AverageSalary />

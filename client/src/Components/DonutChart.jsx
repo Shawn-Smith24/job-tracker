@@ -4,10 +4,19 @@ import { Doughnut } from "react-chartjs-2";
 import { generateColorVariations } from "../helpers/generateColorVariations";
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const DonutChart = ({ colors }) => {
+const DonutChart = ({ colors, applications }) => {
+	const statusCounts = [0, 0, 0, 0];
+
+	applications.reduce((acc, app) => {
+		acc[app.status]++;
+		return acc;
+	}, statusCounts);
+
+	console.log("statusCounts", statusCounts);
+
 	const labels = [
 		"Applied",
-		"Interview Phase",
+		"Interviewing",
 		"Offer Given",
 		"Application Rejected",
 	];
@@ -17,7 +26,8 @@ const DonutChart = ({ colors }) => {
 		datasets: [
 			{
 				label: "# of Applications",
-				data: [12, 19, 3, 1],
+				// applied, interviewing, offer given, rejected
+				data: statusCounts,
 				backgroundColor: [
 					`${accentVariations[0]}`,
 					`${accentVariations[1]}`,
