@@ -15,12 +15,12 @@ fake = Faker()
 
 
 company_list = ["Apple", "Amazon", "Google", "Netflix", "Sony", "EA", "Microsoft", "Airbnb", "Pinterest", "Tesla", "Twitter", "Meta", "Tik Tok", "Youtube", "Reddit", "Instagram", "Honda", "Waymo", "Twilio"]
-job_list = ["Frontend Engineer", "Backend Engineer", "Fullstack Engineer", "UX/UI Designer", "Dev Ops"]
+job_list = ["Frontend Engineer", "Backend Engineer", "Fullstack Engineer", "UX/UI Designer", "Dev Ops", "Project Manager"]
 user_list = ["Madison_Evans"]
 
 COMPANY_QTY = len(company_list)
 JOB_QTY = len(job_list)
-APPLICATION_QTY =20
+APPLICATION_QTY =10
 USER_QTY = len(user_list)
 
 print("Seeding jobs...")
@@ -28,11 +28,12 @@ def make_jobs(job_list = job_list):
     Job.query.delete()
             
     jobs = []
-            
+      
+          
     for i in range(JOB_QTY):
         job = Job(
             id = i+1,
-            job_name = job_list[randint(1, JOB_QTY)],
+            job_name = job_list[i],
             location = fake.city(),
             salary = randint(10000, 100000),
             experience_level = randint(1, 2), 
@@ -52,7 +53,7 @@ def make_company(company_list = company_list):
     for i in range(COMPANY_QTY):
         company = Company(
             id = i+1,
-            company_name = company_list[randint(0, COMPANY_QTY)],
+            company_name = company_list[i],
             company_bio = fake.text()
         )
         companies.append(company)
@@ -69,7 +70,7 @@ def make_users(user_list = user_list):
     for i in range(USER_QTY):
         user = User(
             id = i+1,
-            username = user_list[randint(0, USER_QTY)],
+            username = user_list[i],
             password = fake.password()
         )
         users.append(user)
