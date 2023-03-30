@@ -14,16 +14,17 @@ from models import db, User, Application, Job, Company
 fake = Faker()
 
 
-companies = ["Apple", "Amazon", "Google", "Netflix", "Sony", "EA", "Microsoft", "Airbnb", "Pinterest", "Tesla", "Twitter", "Meta", "Tik Tok"]
-jobs = ["Frontend Engineer", "Backend Engineer", "Fullstack Engineer", "UX/UI Designer", "Dev Ops", "Project Manager"]
-users = ["Madison_Evans"]
-COMPANY_QTY = len(companies)
-JOB_QTY = len(jobs)
-APPLICATION_QTY =10
-USER_QTY = len(users)
+company_list = ["Apple", "Amazon", "Google", "Netflix", "Sony", "EA", "Microsoft", "Airbnb", "Pinterest", "Tesla", "Twitter", "Meta", "Tik Tok", "Youtube", "Reddit", "Instagram", "Honda", "Waymo", "Twilio"]
+job_list = ["Frontend Engineer", "Backend Engineer", "Fullstack Engineer", "UX/UI Designer", "Dev Ops"]
+user_list = ["Madison_Evans"]
+
+COMPANY_QTY = len(company_list)
+JOB_QTY = len(job_list)
+APPLICATION_QTY =20
+USER_QTY = len(user_list)
 
 print("Seeding jobs...")
-def make_jobs():
+def make_jobs(job_list = job_list):
     Job.query.delete()
             
     jobs = []
@@ -31,7 +32,7 @@ def make_jobs():
     for i in range(JOB_QTY):
         job = Job(
             id = i+1,
-            job_name = "Frontend Engineer",
+            job_name = job_list[randint(1, JOB_QTY)],
             location = fake.city(),
             salary = randint(10000, 100000),
             experience_level = randint(1, 2), 
@@ -44,15 +45,14 @@ def make_jobs():
         
         
 print("Seeding companies...")
-def make_company():
-    Company.query.delete()
-            
+
+def make_company(company_list = company_list):
+    Company.query.delete()     
     companies = []
-            
     for i in range(COMPANY_QTY):
         company = Company(
             id = i+1,
-            company_name = "Apple",
+            company_name = company_list[randint(0, COMPANY_QTY)],
             company_bio = fake.text()
         )
         companies.append(company)
@@ -61,7 +61,7 @@ def make_company():
         db.session.commit()
         
 print("Seeding users...")
-def make_users():
+def make_users(user_list = user_list):
     User.query.delete()
             
     users = []
@@ -69,7 +69,7 @@ def make_users():
     for i in range(USER_QTY):
         user = User(
             id = i+1,
-            username = fake.name(),
+            username = user_list[randint(0, USER_QTY)],
             password = fake.password()
         )
         users.append(user)
