@@ -11,7 +11,7 @@ export const useJobs = () => {
 };
 
 export const JobsProvider = ({ children }) => {
-	const [jobs, setJobs] = useState(null);
+	const [jobs, setJobs] = useState([]);
 
 	return (
 		<JobsContext.Provider value={{ jobs, setJobs }}>

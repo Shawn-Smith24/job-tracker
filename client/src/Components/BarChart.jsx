@@ -1,4 +1,5 @@
 import React from "react";
+import { JobsContext, useJobs } from "./ContextProviders/JobsContext";
 import {
 	Chart as ChartJS,
 	CategoryScale,
@@ -20,6 +21,25 @@ ChartJS.register(
 );
 
 const BarChart = ({ colors }) => {
+	const { jobs, setJobs } = useJobs();
+
+	// function populateExperienceLevel(jobs) {
+	// 	const experienceLevelCounts = jobs.reduce(
+	// 		(acc, job) => {
+	// 			if (job.experience_level === "Junior") {
+	// 				acc[0]++;
+	// 			} else if (job.experience_level === "Mid-Level") {
+	// 				acc[1]++;
+	// 			} else if (job.experience_level === "Senior") {
+	// 				acc[2]++;
+	// 			}
+	// 			return acc;
+	// 		},
+	// 		[0, 0, 0]
+	// 	);
+	// 	return experienceLevelCounts;
+	// }
+
 	const data = {
 		labels: ["Junior", "Mid-Level", "Senior"],
 		datasets: [

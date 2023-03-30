@@ -5,6 +5,7 @@ import Dashboard from "./Pages/Dashboard";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ModalProvider } from "./Components/ContextProviders/ModalContext";
 import { ApplicationsProvider } from "./Components/ContextProviders/ApplicationsContext"; // Import ApplicationsProvider
+import { CompaniesProvider } from "./Components/ContextProviders/CompaniesContext";
 import { JobsProvider } from "./Components/ContextProviders/JobsContext";
 function App() {
 	return (
@@ -19,9 +20,11 @@ function App() {
 							element={
 								<ApplicationsProvider>
 									<JobsProvider>
-										{" "}
-										{/* Wrap Dashboard with ApplicationsProvider */}
-										<Dashboard />
+										<CompaniesProvider>
+											{" "}
+											{/* Wrap Dashboard with ApplicationsProvider */}
+											<Dashboard />
+										</CompaniesProvider>
 									</JobsProvider>
 								</ApplicationsProvider>
 							}
