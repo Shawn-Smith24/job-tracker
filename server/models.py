@@ -1,9 +1,12 @@
 from config import db
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import MetaData
-from sqlalchemy.orm import validates
 from sqlalchemy.ext.associationproxy import association_proxy
 from sqlalchemy_serializer import SerializerMixin
+from sqlalchemy.orm import validates
+from sqlalchemy.ext.hybrid import hybrid_property
+
+from app import bcrypt
 
 metadata = MetaData(naming_convention={
     "fk": "fk_%(table_name)s_%(column_0_name)s_%(referred_table_name)s",
@@ -13,29 +16,21 @@ db = SQLAlchemy(metadata=metadata)
 
 class User(db.Model, SerializerMixin):
     __tablename__ = 'users'
-
     serialize_rules = ('-applied.user', '-applied.job')
-
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String)
-    password = db.Column(db.String)
+    
+    _password_hash = db.Column(db.String)
+    admin = db.Column(db.String, default=False)
+    
+    @hybrid_property
+    def password_hash(self):
+        return self._password_hash
+    
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())
-
-    # a list of application objects for a given user 
     applied = db.relationship('Application', backref='user')
     
-    # @validates('username')
-    # def validates_username(self,key,username):
-    #     if not username or len(username) > 5 and len(username) < 50:
-    #         raise AssertionError('Username must be between 5 and 50 characters.')
-    #     return username
-
-    # @validates('password')
-    # def validates_password(self,key,password):
-    #     if not password or len(password) > 10 and len(password) < 50:
-    #         raise AssertionError('Password must be between 5 and 50 characters.')
-    #     return password
     
 
 class Application(db.Model, SerializerMixin):

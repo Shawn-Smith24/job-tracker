@@ -1,17 +1,24 @@
 from flask import Flask, make_response, request, abort, jsonify
 from flask_migrate import Migrate
+from werkzeug.exceptions import NotFound, Unauthorized
 from flask_cors import CORS
 from flask_restful import Api, Resource
 from models import db, Job, User, Application, Company
+from flask_bcrypt import Bcrypt
 
 app = Flask(__name__)
+CORS(app)
+bcrypt = Bcrypt(app)
+
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.json.compact = False
-CORS(app)
+
 migrate = Migrate(app, db)
 db.init_app(app)
 api = Api(app)
+
+
 class Home(Resource):
     def get(self):
         return {'message': 'Welcome to the Job Board API!'}
