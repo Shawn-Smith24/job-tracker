@@ -370,13 +370,16 @@ class Login(Resource):
             user = User.query.filter_by(email=request.get_json()['email']).first()
             if user == None: 
                 return make_response("this email does not exist", 404)
+            print(user.authenticate(request.get_json()['password']))
             if user and user.authenticate(request.get_json()['password']):
                 session['user_id'] = user.id
                 response = make_response(
                     user.to_dict(),
                     200
-                )
-                return response
+            ) 
+            else: 
+                response = make_response("incorrect password",404)
+            return response
         except:
             abort(401, "Incorrect Email or Password")
 

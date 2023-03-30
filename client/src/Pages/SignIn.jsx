@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SignIn = () => {
 	const [isSignIn, setIsSignIn] = useState(true);
-
+	const navigate = useNavigate();
 	const [signinFormData, setSigninFormData] = useState({
 		email: "",
 		password: "",
@@ -35,9 +36,11 @@ const SignIn = () => {
 			.then((response) => {
 				if (response.ok) {
 					console.log("Success");
+					navigate("/dashboard", { replace: true });
 					return response.json();
 				} else {
-					throw new Error("Network response was not ok");
+					console.log("Error, something went wrong :(((");
+					// [ ] make some sort of flag here
 				}
 			})
 			.then((data) => {
@@ -67,6 +70,7 @@ const SignIn = () => {
 						placeholder="Enter email"
 						value={signinFormData.email}
 						onChange={handleChange}
+						required
 					/>
 					<input
 						name="password"
@@ -75,6 +79,7 @@ const SignIn = () => {
 						placeholder="Enter password"
 						value={signinFormData.password}
 						onChange={handleChange}
+						required
 					/>
 					<input
 						className="cursor-pointer text-center w-full border border-info rounded-lg p-4 my-2 bg-primary transition-colors hover:bg-accent hover:border-accent hover:text-primary"
