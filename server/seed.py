@@ -20,7 +20,7 @@ user_list = ["Madison_Evans"]
 
 COMPANY_QTY = len(company_list)
 JOB_QTY = 50
-APPLICATION_QTY =5
+APPLICATION_QTY =8
 USER_QTY = len(user_list)
 
 print("Seeding jobs...")
@@ -34,7 +34,7 @@ def make_jobs(job_list = job_list):
             id = i+1,
             job_name = job_list[randint(0,len(job_list)-1)],
             location = fake.city(),
-            salary = randint(10, 100)*1000,
+            salary = randint(50, 120)*1000,
             experience_level = exp_level_list[randint(0, 2)], 
             company_id = randint(1, COMPANY_QTY) 
         )
