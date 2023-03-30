@@ -25,7 +25,8 @@ def make_jobs():
             job_name = fake.company(),
             location = fake.city(),
             salary = randint(10000, 100000),
-            experience_level = randint(1, 10)
+            experience_level = randint(1, 10),
+            company_id = randint(1, 100000)
         )
         jobs.append(job)
         
