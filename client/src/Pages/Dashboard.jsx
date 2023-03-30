@@ -56,8 +56,10 @@ const Dashboard = () => {
 				{showModal && <Modal />}
 				{/* conditional rendering for companies route */}
 				{companies && jobs && applications && displayedContent && (
-					<div className="w-full h-full flex flex-row">
-						<div className="w-96 h-full shadow-lg border-r border-r-secondary overflow-scroll">
+					<div
+						className="
+						w-full h-full flex flex-row">
+						<div className="w-1/4 h-full shadow-lg border-r border-r-secondary">
 							<List
 								applications={applications}
 								setDisplayedContent={setDisplayedContent}

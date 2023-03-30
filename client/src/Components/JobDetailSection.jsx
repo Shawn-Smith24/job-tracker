@@ -11,7 +11,10 @@ const JobDetailSection = ({ displayedContent }) => {
 		setShowModal(true);
 	}
 	return (
-		<div className="relative w-full text-info py-4 px-12 bg-primary flex flex-row justify-center items-center">
+		<div
+			className="
+			relative flex flex-col justify-center items-center bg-primary 
+			w-3/4 text-info lg:py-4 lg:px-12 lg:flex-row">
 			{applicationCard()}
 			<div className="border w-full h-[700px] ml-6 rounded-xl border-secondary">
 				<DataVisualization />
@@ -22,8 +25,8 @@ const JobDetailSection = ({ displayedContent }) => {
 	function applicationCard() {
 		return (
 			<div
-				className="
-				max-w-[650px] w-full h-[700px] p-8 bg-primary rounded-xl border border-secondary shadow-lg
+				className="h-fit
+				max-w-[650px] w-full lg:h-[700px] p-8 bg-primary rounded-xl border border-secondary shadow-lg
 				">
 				<div className="relative">
 					<Edit
@@ -31,10 +34,14 @@ const JobDetailSection = ({ displayedContent }) => {
 						size="1.25em"
 						onClick={editJobDetail}
 					/>
-					<h2 className="font-display text-6xl w-full text-center pt-10 text-accent">
+					<h2
+						className="font-display text-xl w-full text-center pt-10
+						lg:text-6xl text-accent">
 						{displayedContent.companyName}
 					</h2>
-					<ul className="text-center mt-12">
+					<ul
+						className="
+						text-center mt-12">
 						<li>
 							<strong className="text-accent">Role</strong>:{" "}
 							{displayedContent.jobName}
@@ -56,11 +63,13 @@ const JobDetailSection = ({ displayedContent }) => {
 						</li>
 					</ul>
 					<div>
-						<h2 className="font-display text-4xl text-center mt-12 text-accent">
+						<h2
+							className="font-display text-lg
+							lg:text-4xl text-center lg:mt-6 text-accent">
 							Application Status
 						</h2>
 					</div>
-					<Timeline />
+					{/* <Timeline /> */}
 				</div>
 			</div>
 		);
