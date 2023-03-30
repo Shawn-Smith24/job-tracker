@@ -61,17 +61,18 @@ def make_company(company_list = company_list):
         db.session.commit()
         
 print("Seeding users...")
-def make_users(user_list = user_list):
+def make_users(user_list=user_list):
     User.query.delete()
-            
+    
     users = []
-            
+    
     for i in range(USER_QTY):
         user = User(
-            id = i+1,
-            username = user_list[i],
-            password = fake.password()
+            id=i+1,
+            username=user_list[i]
         )
+        user.password = "paasword"
+
         users.append(user)
         
         db.session.add_all(users)

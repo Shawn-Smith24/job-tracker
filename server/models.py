@@ -26,15 +26,19 @@ class User(db.Model, SerializerMixin):
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())
     applied = db.relationship('Application', backref='user')
 
-    # Add this method to hash the password
     def set_password(self, password):
         self.password_hash = bcrypt.generate_password_hash(password).decode('utf-8')
 
-    # Add this method to check the password against the hash
     def authenticate(self, password):
         return bcrypt.check_password_hash(self.password_hash, password)
 
-    
+    @property
+    def password(self):
+        raise AttributeError('Password is not a readable attribute.')
+
+    @password.setter
+    def password(self, password):
+        self.set_password(password)
 
 class Application(db.Model, SerializerMixin):
 
