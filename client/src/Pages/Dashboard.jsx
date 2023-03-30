@@ -7,7 +7,6 @@ import Modal from "../Components/Modal";
 import ModalContext from "../Components/ModalContext";
 import { useContext, useEffect } from "react";
 
-import dummyApps from "../DummyData/applications.json";
 import dummyJobs from "../DummyData/jobs.json";
 import dummyCompanies from "../DummyData/companies.json";
 
@@ -18,8 +17,8 @@ const Dashboard = () => {
 	const [jobs, setJobs] = useState(null);
 
 	const [companies, setCompanies] = useState(null);
+	const [displayedContent, setDisplayedContent] = useState(null);
 
-	const [displayedApp, setDisplayedApp] = useState(dummyApps[0]);
 	function getApplications() {
 		fetch("/users/1", {
 			method: "GET",
@@ -35,6 +34,9 @@ const Dashboard = () => {
 			});
 	}
 
+	useEffect(() => {
+		console.log(displayedContent);
+	}, [displayedContent]);
 	useEffect(() => {
 		setJobs(dummyJobs);
 		setCompanies(dummyCompanies);
@@ -58,14 +60,11 @@ const Dashboard = () => {
 						<div className="w-96 h-full shadow-lg border-r border-r-secondary">
 							<List
 								applications={applications}
-								setDisplayedApp={setDisplayedApp}
+								setDisplayedContent={setDisplayedContent}
+								displayedContent={displayedContent}
 							/>{" "}
 						</div>
-						<JobDetailSection
-							displayedApp={displayedApp}
-							companies={companies}
-							jobs={jobs}
-						/>
+						<JobDetailSection displayedContent={displayedContent} />
 					</div>
 				)}
 			</div>

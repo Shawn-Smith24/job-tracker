@@ -4,7 +4,7 @@ import { FiEdit as Edit } from "react-icons/fi";
 import { useContext } from "react";
 import ModalContext from "./ModalContext";
 import DataVisualization from "./DataVisualization";
-const JobDetailSection = ({ companies, jobs, displayedApp }) => {
+const JobDetailSection = ({ displayedContent }) => {
 	const { setShowModal } = useContext(ModalContext);
 
 	function editJobDetail() {
@@ -22,9 +22,6 @@ const JobDetailSection = ({ companies, jobs, displayedApp }) => {
 	);
 
 	function applicationCard() {
-		const experience = ["Apprentice", "Jr", "Mid-Level", "Sr"];
-		const job = jobs.find((job) => job.job_id === displayedApp.job_id);
-		const company = companies[1];
 		return (
 			<div
 				className="
@@ -37,22 +34,24 @@ const JobDetailSection = ({ companies, jobs, displayedApp }) => {
 						onClick={editJobDetail}
 					/>
 					<h2 className="font-display text-6xl w-full text-center pt-10 text-accent">
-						{job.role}
+						{displayedContent.jobName}
 					</h2>
 					<ul className="text-center mt-12">
 						<li>
 							<strong className="text-accent">Company</strong>:{" "}
-							{company.company_name}
+							{displayedContent.companyName}
 						</li>
 						<li>
-							<strong className="text-accent">Location</strong>: {job.location}
+							<strong className="text-accent">Location</strong>:
+							displayedContent.location
 						</li>
 						<li>
-							<strong className="text-accent">Salary</strong>: ${job.salary}
+							<strong className="text-accent">Salary</strong>:{" "}
+							{displayedContent.salary}
 						</li>
 						<li>
 							<strong className="text-accent">Experience Level</strong>:{" "}
-							{experience[job.experience_level]}
+							{displayedContent.expLevel}
 						</li>
 						<li>
 							<strong className="text-accent">Is Remote?</strong>: No

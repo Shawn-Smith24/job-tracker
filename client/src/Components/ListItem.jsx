@@ -2,23 +2,18 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-const ListItem = ({ application, setDisplayedApp }) => {
+const ListItem = ({ application, setDisplayedContent, displayedContent }) => {
 	const [job, setJob] = useState(null);
 	const [company, setCompany] = useState(null);
-	const [displayContent, setDisplayContent] = useState(null);
+
 	function showJobDetails() {
 		if (job) {
-			// job name
-			console.log(job.job_name);
-
-			// company name
-			console.log(job.company.company_name);
-
-			// salary
-			console.log(job.salary);
-
-			// exp level
-			console.log(job.experience_level);
+			setDisplayedContent({
+				jobName: job.job_name,
+				companyName: job.company.company_name,
+				salary: job.salary,
+				expLevel: job.experience_level,
+			});
 		}
 	}
 
