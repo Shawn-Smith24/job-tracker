@@ -20,32 +20,13 @@ ChartJS.register(
 	Legend
 );
 
-const BarChart = ({ colors }) => {
-	const { jobs, setJobs } = useJobs();
-
-	// function populateExperienceLevel(jobs) {
-	// 	const experienceLevelCounts = jobs.reduce(
-	// 		(acc, job) => {
-	// 			if (job.experience_level === "Junior") {
-	// 				acc[0]++;
-	// 			} else if (job.experience_level === "Mid-Level") {
-	// 				acc[1]++;
-	// 			} else if (job.experience_level === "Senior") {
-	// 				acc[2]++;
-	// 			}
-	// 			return acc;
-	// 		},
-	// 		[0, 0, 0]
-	// 	);
-	// 	return experienceLevelCounts;
-	// }
-
+const BarChart = ({ colors, experienceCount }) => {
 	const data = {
 		labels: ["Junior", "Mid-Level", "Senior"],
 		datasets: [
 			{
 				label: "Dataset 1",
-				data: [2, 1, 1],
+				data: experienceCount,
 				backgroundColor: [
 					`${colors.accent}`,
 					`${colors.accent}`,

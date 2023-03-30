@@ -3,7 +3,7 @@ import { FiEdit as Edit } from "react-icons/fi";
 import { useContext } from "react";
 import ModalContext from "./ContextProviders/ModalContext";
 import DataVisualization from "./DataVisualization";
-const JobDetailSection = ({ displayedContent }) => {
+const JobDetailSection = ({ displayedContent, experienceCount }) => {
 	const { setShowModal } = useContext(ModalContext);
 
 	function editJobDetail() {
@@ -19,7 +19,7 @@ const JobDetailSection = ({ displayedContent }) => {
 				className="
 				border w-[400px] h-fit rounded-xl border-secondary shadow-lg my-4
 				lg:ml-6 ">
-				<DataVisualization />
+				<DataVisualization experienceCount={experienceCount} />
 			</div>
 		</div>
 	);

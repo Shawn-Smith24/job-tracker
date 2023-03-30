@@ -4,7 +4,7 @@ import DonutChart from "./DonutChart";
 import AverageSalary from "./AverageSalary";
 import { useApplications } from "./ContextProviders/ApplicationsContext";
 
-const DataVisualization = () => {
+const DataVisualization = ({ experienceCount }) => {
 	const { applications, setApplications } = useApplications();
 	const [statusAggregate, setStatusAggregate] = useState({
 		applied: 0,
@@ -45,7 +45,7 @@ const DataVisualization = () => {
 	return (
 		<div className="w-full p-4 lg:h-[600px] flex flex-col justify-center items-center ">
 			<div className="w-full h-1/2 flex flex-row justify-center items-center">
-				<BarChart colors={colors} />
+				<BarChart colors={colors} experienceCount={experienceCount} />
 			</div>
 			<div className="h-1/2 w-full flex flex-row justify-around mt-4">
 				<div

@@ -62,7 +62,10 @@ const Dashboard = () => {
 								setExperienceCount={setExperienceCount}
 							/>
 						</div>
-						<JobDetailSection displayedContent={displayedContent} />
+						<JobDetailSection
+							displayedContent={displayedContent}
+							experienceCount={experienceCount}
+						/>
 					</div>
 				)}
 			</div>
