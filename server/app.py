@@ -4,27 +4,17 @@ from flask_cors import CORS
 from flask_restful import Api, Resource
 from models import db, Job, User, Application, Company
 
-
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.json.compact = False
-
 CORS(app)
 migrate = Migrate(app, db)
-
 db.init_app(app)
-
 api = Api(app)
-
-
 class Home(Resource):
     def get(self):
         return {'message': 'Welcome to the Job Board API!'}
-
-api.add_resource(Home, '/')
-
-
 class Jobs(Resource):
     def get(self):
 
@@ -58,11 +48,6 @@ class Jobs(Resource):
             201,
         )
         return response
-
-
-api.add_resource(Jobs, '/jobs/')
-
-
 class JobsbyID(Resource):
     def get(self, id):
 
@@ -112,11 +97,6 @@ class JobsbyID(Resource):
         )
 
         return response
-
-
-api.add_resource(JobsbyID, '/jobs/<int:id>')
-
-
 class Users(Resource):
     def get(self):
 
@@ -147,9 +127,6 @@ class Users(Resource):
             201,
         )
         return response
-    
-api.add_resource(Users, '/users/')
-
 class UsersbyID(Resource):
     def get(self, id):
 
@@ -199,10 +176,6 @@ class UsersbyID(Resource):
         )
 
         return response
-    
-api.add_resource(UsersbyID, '/users/<int:id>')
-
-
 class Applications(Resource):
     def get(self):
 
@@ -232,10 +205,7 @@ class Applications(Resource):
             jsonify(response_dict),
             201,
         )
-        return response
-    
-api.add_resource(Applications, '/applications/')
-
+        return response  
 class ApplicationsByID(Resource):
     def get(self, id):
 
@@ -285,10 +255,6 @@ class ApplicationsByID(Resource):
         )
 
         return response
-    
-api.add_resource(ApplicationsByID, '/applications/<int:id>/')
-    
-    
 class Companies(Resource):
     def get(self):
 
@@ -319,10 +285,6 @@ class Companies(Resource):
             201,
         )
         return response
-    
-api.add_resource(Companies, '/companies/')
-
-
 class CompaniesByID(Resource):
     def get(self, id):
 
@@ -374,7 +336,14 @@ class CompaniesByID(Resource):
         return response
     
 api.add_resource(CompaniesByID, '/companies/<int:id>/')
-# Views go here!
+api.add_resource(Companies, '/companies/')
+api.add_resource(ApplicationsByID, '/applications/<int:id>/')
+api.add_resource(Applications, '/applications/')
+api.add_resource(UsersbyID, '/users/<int:id>')
+api.add_resource(Users, '/users/')
+api.add_resource(JobsbyID, '/jobs/<int:id>')
+api.add_resource(Jobs, '/jobs/')
+api.add_resource(Home, '/')   
 
 if __name__ == '__main__' : 
     app.run(port=5555, debug=True)
