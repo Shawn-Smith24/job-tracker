@@ -10,10 +10,12 @@ export default function List({
 	setApplications,
 }) {
 	const [formData, setFormData] = useState({
-		input1: "",
-		input2: "",
-		input3: "",
-		input4: "",
+		company_name: "",
+		job_name: "",
+		salary: "",
+		location: "",
+		experience_level: "",
+		status: "",
 	});
 	const [showModal, setShowModal] = useState(false);
 
@@ -26,7 +28,6 @@ export default function List({
 			method: "DELETE",
 		})
 			.then((response) => {
-				// Filter out the deleted application and update the state
 				const updatedApplications = applications.filter(
 					(app) => app.id !== applicationId
 				);
@@ -39,15 +40,56 @@ export default function List({
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		const requestOptions = {
+
+		const jobRequestOptions = {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
-			body: JSON.stringify(formData),
+			body: JSON.stringify({
+				job_name: formData.job_name,
+				salary: formData.salary,
+				location: formData.location,
+				experience_level: formData.experience_level,
+			}),
+		};
+		const companyRequestOptions = {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify({ company_name: formData.company_name }),
+		};
+		const applicationRequestOptions = {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify({ status: formData.status }),
 		};
 
-		fetch("/endpoint", requestOptions)
+		fetch("/companies")
 			.then((response) => response.json())
-			.then((data) => console.log(data))
+			.then((companies) => {
+				console.log(companies);
+				const matchingCompany = companies.find(
+					(company) => company.company_name === formData.company_name
+				);
+				if (matchingCompany) {
+					console.log(matchingCompany.id);
+					return matchingCompany.id;
+				} else {
+					throw new Error("company not found");
+				}
+			})
+			.then((companyId) => {
+				console.log("Company ID: ", companyId);
+				fetch("/jobs", {
+					method: "POST",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify({
+						company_id: companyId,
+						job_name: formData.job_name,
+						salary: formData.salary,
+						location: formData.location,
+						experience_level: formData.experience_level,
+					}),
+				});
+			})
 			.catch((error) => console.log(error));
 	};
 
@@ -159,7 +201,6 @@ export default function List({
 										onChange={handleChange}
 										placeholder="Enter the location for this role"
 									/>
-									{/* TODO: Enter Experience Level */}
 									<select
 										className="placeholder-secondary mb-2 w-full p-2 border border-secondary rounded"
 										name="experience_level"

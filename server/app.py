@@ -23,6 +23,7 @@ db.init_app(app)
 
 api = Api(app)
 
+
 class Home(Resource):
     def get(self):
         return {'message': 'Welcome to the Job Board API!'}
