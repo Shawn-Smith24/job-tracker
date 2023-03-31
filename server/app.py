@@ -350,6 +350,7 @@ api.add_resource(Home, '/')
 class Signup(Resource):
     def post(self):
         form_json = request.get_json()
+        print(form_json)
         new_user = User(name=form_json['name'], email=form_json['email'])
         new_user.password = form_json['password']  # Use the password setter property
         db.session.add(new_user)

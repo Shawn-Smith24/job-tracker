@@ -16,7 +16,7 @@ const Navigation = () => {
 				if (!response.ok) {
 					throw new Error("Logout failed.");
 				}
-				navigate("/", { replace: true });
+				navigate("/signin", { replace: true });
 			})
 			.catch((error) => {
 				console.error(error);

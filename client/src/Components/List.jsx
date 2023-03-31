@@ -20,11 +20,19 @@ export default function List({
 		const { name, value } = event.target;
 		setFormData({ ...formData, [name]: value });
 	};
-	function handleCancel() {}
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		console.log(formData);
+		const requestOptions = {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify(formData),
+		};
+
+		fetch("/endpoint", requestOptions)
+			.then((response) => response.json())
+			.then((data) => console.log(data))
+			.catch((error) => console.log(error));
 	};
 
 	function toggleModal() {
@@ -189,8 +197,8 @@ export default function List({
 									</button>
 									<button
 										className="
-								px-4 py-2 bg-info text-primary rounded transition
-								hover:bg-accent hover:text-info"
+										px-4 py-2 bg-info text-primary rounded transition
+										hover:bg-accent hover:text-info"
 										type="submit">
 										Submit
 									</button>
