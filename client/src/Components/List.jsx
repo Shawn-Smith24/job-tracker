@@ -8,6 +8,7 @@ export default function List({
 	displayedContent,
 	setExperienceCount,
 	setApplications,
+	userId,
 }) {
 	const [formData, setFormData] = useState({
 		company_name: "",
@@ -88,7 +89,19 @@ export default function List({
 						location: formData.location,
 						experience_level: formData.experience_level,
 					}),
-				});
+				})
+					.then((res) => res.json())
+					.then((newJob) => {
+						fetch("/applications", {
+							method: "POST",
+							headers: { "Content-Type": "application/json" },
+							body: JSON.stringify({
+								status: formData.status,
+								job_id: newJob.id,
+								user_id: userId,
+							}),
+						});
+					});
 			})
 			.catch((error) => console.log(error));
 	};
