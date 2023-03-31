@@ -7,6 +7,7 @@ const ListItem = ({
 	application,
 	setDisplayedContent,
 	updateExperienceCount,
+	handleDelete,
 }) => {
 	const [job, setJob] = useState(null);
 	const [company, setCompany] = useState(null);
@@ -14,15 +15,7 @@ const ListItem = ({
 	const { jobs, setJobs } = useJobs();
 
 	function deleteApplication() {
-		fetch(`/applications/${application.id}`, {
-			method: "DELETE",
-		})
-			.then((response) => {
-				console.log(response);
-			})
-			.catch((error) => {
-				console.log(error);
-			});
+		handleDelete();
 	}
 
 	function showJobDetails() {

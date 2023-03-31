@@ -75,11 +75,13 @@ const JobDetailSection = ({ displayedContent, experienceCount }) => {
 							lg:text-4xl text-center lg:mt-6 text-accent">
 							Application Status
 						</h2>
-						<p className="w-full text-center text-info ">
+						<p
+							className="
+							w-full text-center text-info font-display text-lg mt-8
+							xl:text-2xl">
 							{displayedContent.applicationStatus}
 						</p>
 					</div>
-					{/* <Timeline /> */}
 				</div>
 			</div>
 		);

@@ -32,7 +32,7 @@ users = [
     ]
 COMPANY_QTY = len(company_list)
 JOB_QTY = 22
-APPLICATION_QTY =22
+APPLICATION_QTY =10
 USER_QTY = len(users)
 
 print("Seeding jobs...")

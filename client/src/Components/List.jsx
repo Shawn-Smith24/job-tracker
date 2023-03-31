@@ -7,6 +7,7 @@ export default function List({
 	setDisplayedContent,
 	displayedContent,
 	setExperienceCount,
+	setApplications,
 }) {
 	const [formData, setFormData] = useState({
 		input1: "",
@@ -19,6 +20,21 @@ export default function List({
 	const handleChange = (event) => {
 		const { name, value } = event.target;
 		setFormData({ ...formData, [name]: value });
+	};
+	const handleDelete = (applicationId) => {
+		fetch(`/applications/${applicationId}`, {
+			method: "DELETE",
+		})
+			.then((response) => {
+				// Filter out the deleted application and update the state
+				const updatedApplications = applications.filter(
+					(app) => app.id !== applicationId
+				);
+				setApplications(updatedApplications);
+			})
+			.catch((error) => {
+				console.log(error);
+			});
 	};
 
 	const handleSubmit = (event) => {
@@ -78,6 +94,7 @@ export default function List({
 							application={application}
 							key={id}
 							updateExperienceCount={updateExperienceCount}
+							handleDelete={() => handleDelete(application.id)}
 						/>
 					))}
 				</ul>
@@ -98,8 +115,8 @@ export default function List({
 								transition: { type: "spring", duration: 1 },
 							}}
 							className="
-					text-secondary h-fit flex flex-col items-center justify-center px-4 py-10 absolute rounded-xl border w-3/4 top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2
-					lg:px-12">
+							text-secondary h-fit flex flex-col items-center justify-center px-4 py-10 absolute rounded-xl border w-3/4 top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2
+							lg:px-12">
 							<form onSubmit={handleSubmit}>
 								<div className="space-y 4">
 									{/* TODO: enter company name */}

@@ -58,6 +58,7 @@ const Dashboard = ({ userId }) => {
 						<div className="w-1/4 h-full shadow-lg border-r border-r-secondary">
 							<List
 								applications={applications}
+								setApplications={setApplications}
 								setDisplayedContent={setDisplayedContent}
 								displayedContent={displayedContent}
 								setExperienceCount={setExperienceCount}
