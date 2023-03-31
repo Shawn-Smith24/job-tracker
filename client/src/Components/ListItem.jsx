@@ -12,6 +12,8 @@ const ListItem = ({
 	const [company, setCompany] = useState(null);
 	const { companies, setCompanies } = useCompanies();
 	const { jobs, setJobs } = useJobs();
+	const [showModal, setShowModal] = useState(false);
+
 	function deleteApplication() {
 		fetch(`/applications/${application.id}`, {
 			method: "DELETE",
@@ -56,14 +58,12 @@ const ListItem = ({
 				setCompanies(...companies, company);
 				setJob(job);
 				setJobs(...jobs, job);
-
-				// Update experienceCount in the parent component
 				updateExperienceCount(job.experience_level);
 			});
 	}, [application]);
 
 	return (
-		<>
+		<div>
 			{job && company && (
 				<motion.li
 					className="relative flex py-4 border-b border-b-secondary group hover:border-b-accent hover:bg-accent transition cursor-pointer"
@@ -88,7 +88,7 @@ const ListItem = ({
 					</div>
 				</motion.li>
 			)}
-		</>
+		</div>
 	);
 };
 
