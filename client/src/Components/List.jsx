@@ -1,5 +1,5 @@
 import ListItem from "./ListItem";
-
+import { AiOutlinePlusCircle as Add } from "react-icons/ai";
 export default function List({
 	applications,
 	setDisplayedContent,
@@ -29,16 +29,25 @@ export default function List({
 	};
 
 	return (
-		<ul className="">
-			{applications.map((application, id) => (
-				<ListItem
-					setDisplayedContent={setDisplayedContent}
-					displayedContent={displayedContent}
-					application={application}
-					key={id}
-					updateExperienceCount={updateExperienceCount}
-				/>
-			))}
-		</ul>
+		<div className="relative">
+			<span
+				className="
+				cursor-pointer absolute -right-6 z-50 -mr-1 my-1 text-secondary transition
+				hover:text-info
+				">
+				<Add size="1.5em" />
+			</span>
+			<ul>
+				{applications.map((application, id) => (
+					<ListItem
+						setDisplayedContent={setDisplayedContent}
+						displayedContent={displayedContent}
+						application={application}
+						key={id}
+						updateExperienceCount={updateExperienceCount}
+					/>
+				))}
+			</ul>
+		</div>
 	);
 }
