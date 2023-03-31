@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const SignUp = () => {
+const SignUp = ({ setUserId }) => {
 	const navigate = useNavigate();
 	const [signupFormData, setSignupFormData] = useState({
 		name: "",
@@ -43,8 +43,8 @@ const SignUp = () => {
 					console.log("Error, something went wrong :(((");
 				}
 			})
-			.then((data) => {
-				console.log(data);
+			.then((user) => {
+				setUserId(user.id);
 			})
 			.catch((error) => {
 				console.error(error);

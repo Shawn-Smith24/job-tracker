@@ -12,7 +12,6 @@ const ListItem = ({
 	const [company, setCompany] = useState(null);
 	const { companies, setCompanies } = useCompanies();
 	const { jobs, setJobs } = useJobs();
-	const [showModal, setShowModal] = useState(false);
 
 	function deleteApplication() {
 		fetch(`/applications/${application.id}`, {
@@ -28,11 +27,11 @@ const ListItem = ({
 
 	function showJobDetails() {
 		let applicationStatus = "";
-		if (application.status === 1) {
+		if (application.status === 0) {
 			applicationStatus = "Applied";
-		} else if (application.status === 2) {
+		} else if (application.status === 1) {
 			applicationStatus = "Interviewing";
-		} else if (application.status === 3) {
+		} else if (application.status === 2) {
 			applicationStatus = "Offer Given";
 		} else if (application.status === 3) {
 			applicationStatus = "Application Rejected";

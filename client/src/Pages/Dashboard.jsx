@@ -22,6 +22,7 @@ const Dashboard = ({ userId }) => {
 		salary: "",
 		expLevel: "",
 		location: "",
+		applicationStatus: "",
 	});
 
 	function getApplications() {
