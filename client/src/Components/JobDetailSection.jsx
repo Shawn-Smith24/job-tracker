@@ -1,6 +1,6 @@
 import React from "react";
 import { FiEdit as Edit } from "react-icons/fi";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import ModalContext from "./ContextProviders/ModalContext";
 import DataVisualization from "./DataVisualization";
 const JobDetailSection = ({ displayedContent, experienceCount }) => {
@@ -9,6 +9,7 @@ const JobDetailSection = ({ displayedContent, experienceCount }) => {
 	function editJobDetail() {
 		setShowModal(true);
 	}
+	useEffect(() => {}, [displayedContent]);
 	return (
 		<div
 			className="
