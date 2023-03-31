@@ -41,28 +41,13 @@ export default function List({
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-
-		const jobRequestOptions = {
-			method: "POST",
-			headers: { "Content-Type": "application/json" },
-			body: JSON.stringify({
-				job_name: formData.job_name,
-				salary: formData.salary,
-				location: formData.location,
-				experience_level: formData.experience_level,
-			}),
-		};
-		const companyRequestOptions = {
-			method: "POST",
-			headers: { "Content-Type": "application/json" },
-			body: JSON.stringify({ company_name: formData.company_name }),
-		};
-		const applicationRequestOptions = {
-			method: "POST",
-			headers: { "Content-Type": "application/json" },
-			body: JSON.stringify({ status: formData.status }),
-		};
-
+		const statusOptions = [
+			"Applied",
+			"Interviewing",
+			"Offer Received",
+			"Application Rejected",
+		];
+		const status_input = statusOptions.indexOf(formData.status);
 		fetch("/companies")
 			.then((response) => response.json())
 			.then((companies) => {
@@ -92,11 +77,12 @@ export default function List({
 				})
 					.then((res) => res.json())
 					.then((newJob) => {
+						console.log("status input for this application is", status_input);
 						fetch("/applications", {
 							method: "POST",
 							headers: { "Content-Type": "application/json" },
 							body: JSON.stringify({
-								status: formData.status,
+								status: status_input,
 								job_id: newJob.id,
 								user_id: userId,
 							}),
@@ -235,9 +221,8 @@ export default function List({
 										<option value="" disabled selected>
 											Application Status
 										</option>
-										<option value="Apllied">Applied</option>
-										<option value="Interview 1">Interview 1</option>
-										<option value="Interview 2">Interview 2</option>
+										<option value="Applied">Applied</option>
+										<option value="Interviewing">Interviewing</option>
 										<option value="Offer Received">Offer Recieved</option>
 										<option value="Application Rejected">
 											Application Rejected

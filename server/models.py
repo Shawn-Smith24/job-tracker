@@ -48,6 +48,7 @@ class Application(db.Model, SerializerMixin):
     status = db.Column(db.Integer)
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())
+    
 
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     job_id = db.Column(db.Integer, db.ForeignKey('jobs.id'))

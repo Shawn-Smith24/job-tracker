@@ -19,20 +19,15 @@ job_list = ["Frontend Engineer", "Backend Engineer", "Fullstack Engineer", "UX/U
 
 users = [
         {
-            'name': 'Madison Evans',
-            'email': 'm.corbinevans@gmail.com',
-            'password': 'holliejo1',
-        },
-        {
-            'name': 'Tony Stark',
-            'email': 'tony@avengers.com',
+            'name': 'Tom',
+            'email': 'tom@myspace.com',
             'password': '123',
-        }
+        },
 
     ]
 COMPANY_QTY = len(company_list)
 JOB_QTY = 22
-APPLICATION_QTY =10
+APPLICATION_QTY =6
 USER_QTY = len(users)
 
 print("Seeding jobs...")
