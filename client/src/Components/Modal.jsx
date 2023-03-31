@@ -2,13 +2,13 @@ import React, { useState, useContext } from "react";
 import ModalContext from "./ContextProviders/ModalContext";
 import { motion } from "framer-motion";
 
-const Modal = () => {
-	const { setShowModal } = useContext(ModalContext);
+const Modal = ({ displayedContent }) => {
+	const { setShowModal, setDisplayedContent } = useContext(ModalContext);
 	const [formData, setFormData] = useState({
-		input1: "",
-		input2: "",
-		input3: "",
-		input4: "",
+		job_name: "",
+		location: "",
+		salary: "",
+		experience_level: "",
 	});
 
 	const handleChange = (event) => {
@@ -18,8 +18,15 @@ const Modal = () => {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		// Process form data
-		console.log(formData);
+		const requestOptions = {
+			method: "PATCH",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify(formData),
+		};
+		fetch(`/jobs/${displayedContent.job_id}`, requestOptions)
+			.then((response) => response.json())
+			.then((data) => console.log(data))
+			.catch((error) => console.log(error));
 	};
 
 	const handleCancel = () => {
@@ -46,23 +53,14 @@ const Modal = () => {
 					lg:px-12">
 					<form onSubmit={handleSubmit}>
 						<div className="space-y 4">
-							{/* TODO: enter company name */}
-							<input
-								className="placeholder-secondary my-2 w-full p-2 border border-secondary rounded"
-								type="text"
-								name="input2"
-								value={formData.input2}
-								onChange={handleChange}
-								placeholder="Enter Name of Company"
-							/>
-							{/* TODO: choose role */}
+							{/* TODO: job_name */}
 							<select
 								className="w-full p-2 border border-secondary rounded"
-								name="input1"
-								value={formData.input1}
+								name="job_name"
+								value={formData.job_name}
 								onChange={handleChange}>
 								<option value="" disabled selected>
-									Choose a role
+									Edit Role
 								</option>
 								<option value="Frontend">Frontend</option>
 								<option value="Backend">Backend</option>
@@ -71,28 +69,28 @@ const Modal = () => {
 								<option value="Dev-Ops">Dev-Ops</option>
 							</select>
 
-							{/* TODO: enter salary */}
+							{/* TODO: salary */}
 							<input
 								className="placeholder-secondary my-2 w-full p-2 border border-secondary rounded"
 								type="text"
-								name="input2"
-								value={formData.input2}
+								name="salary"
+								value={formData.salary}
 								onChange={handleChange}
-								placeholder="Enter Salary for this role"
+								placeholder="Edit salary for this role"
 							/>
-							{/* TODO: enter Location */}
+							{/* TODO: location */}
 							<input
 								className="placeholder-secondary mb-2 w-full p-2 border border-secondary rounded"
 								type="text"
-								name="input2"
-								value={formData.input2}
+								name="location"
+								value={formData.location}
 								onChange={handleChange}
 								placeholder="Enter the location for this role"
 							/>
-							{/* TODO: Enter Experience Level */}
+							{/* TODO: experience_level */}
 							<select
 								className="placeholder-secondary mb-2 w-full p-2 border border-secondary rounded"
-								name="input3"
+								name="experience_level"
 								value={formData.input1}
 								onChange={handleChange}>
 								<option value="" disabled selected>
@@ -101,35 +99,6 @@ const Modal = () => {
 								<option value="Junior">Junior</option>
 								<option value="Mid-Level">Mid-Level</option>
 								<option value="Senior">Senior</option>
-							</select>
-							{/* TODO: Is it remote? */}
-							<select
-								className="placeholder-secondary mb-2 w-full p-2 border border-secondary rounded"
-								name="input1"
-								value={formData.input1}
-								onChange={handleChange}>
-								<option value="" disabled selected>
-									Is this a remote position?
-								</option>
-								<option value="Yes">Yes</option>
-								<option value="No">No</option>
-							</select>
-							{/* TODO: Application Status */}
-							<select
-								className="w-full p-2 border border-secondary rounded"
-								name="input1"
-								value={formData.input1}
-								onChange={handleChange}>
-								<option value="" disabled selected>
-									Application Status
-								</option>
-								<option value="Apllied">Applied</option>
-								<option value="Interview 1">Interview 1</option>
-								<option value="Interview 2">Interview 2</option>
-								<option value="Offer Received">Offer Recieved</option>
-								<option value="Application Rejected">
-									Application Rejected
-								</option>
 							</select>
 						</div>
 						<div className="flex justify-center mt-4 space-x-4 w-full">

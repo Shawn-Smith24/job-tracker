@@ -37,8 +37,10 @@ const ListItem = ({
 				expLevel: job.experience_level,
 				location: job.location,
 				applicationStatus: applicationStatus,
+				job_id: job.id,
 			});
 		}
+		console.log(job.id, "JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ");
 	}
 
 	useEffect(() => {

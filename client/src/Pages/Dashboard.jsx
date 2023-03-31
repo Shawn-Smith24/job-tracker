@@ -23,7 +23,9 @@ const Dashboard = ({ userId }) => {
 		expLevel: "",
 		location: "",
 		applicationStatus: "",
+		job_id: "",
 	});
+	console.log(displayedContent, "OOOOOOOOOOOOOOOOOOOOOOOOOO");
 
 	function getApplications() {
 		fetch(`/users/${userId}`, {
@@ -52,7 +54,7 @@ const Dashboard = ({ userId }) => {
 		<>
 			<div className="w-full h-full flex flex-col">
 				<Navigation />
-				{showModal && <Modal />}{" "}
+				{showModal && <Modal displayedContent={displayedContent} />}{" "}
 				{jobs && applications && displayedContent && (
 					<div className="w-full h-full flex flex-row">
 						<div className="w-1/4 h-full shadow-lg border-r border-r-secondary">

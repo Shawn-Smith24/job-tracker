@@ -67,10 +67,11 @@ class Job(db.Model, SerializerMixin):
     location = db.Column(db.String)
     salary = db.Column(db.Integer)
     experience_level = db.Column(db.String)
+    company_id = db.Column(db.Integer, db.ForeignKey('companies.id'))
+    
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())
 
-    company_id = db.Column(db.Integer, db.ForeignKey('companies.id'))
     company = db.relationship('Company', backref='job')
 
     
