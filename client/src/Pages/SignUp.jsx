@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
 	const navigate = useNavigate();
-	const [signinFormData, setSigninFormData] = useState({
+	const [signupFormData, setSignupFormData] = useState({
 		email: "",
 		password: "",
 	});
@@ -14,15 +14,15 @@ const SignUp = () => {
 
 	const handleChange = (e) => {
 		const { name, value } = e.target;
-		setSigninFormData({ ...signinFormData, [name]: value });
+		setSignupFormData({ ...signupFormData, [name]: value });
 	};
 
 	const handleSignin = (e) => {
 		e.preventDefault();
-		console.log("form data", signinFormData);
+		console.log("form data", signupFormData);
 		const data = {
-			email: signinFormData.email,
-			password: signinFormData.password,
+			email: signupFormData.email,
+			password: signupFormData.password,
 		};
 
 		fetch("/login", {
@@ -67,7 +67,7 @@ const SignUp = () => {
 						type="text"
 						className="w-full rounded-md p-2 my-2 text-primary"
 						placeholder="Enter your full name"
-						value={signinFormData.email}
+						value={signupFormData.email}
 						onChange={handleChange}
 						required
 					/>
@@ -76,7 +76,7 @@ const SignUp = () => {
 						type="email"
 						className="w-full rounded-md p-2 my-2 text-primary"
 						placeholder="Enter email"
-						value={signinFormData.email}
+						value={signupFormData.email}
 						onChange={handleChange}
 						required
 					/>
@@ -85,7 +85,7 @@ const SignUp = () => {
 						className="w-full p-2 rounded-md my-2 text-primary"
 						type="password"
 						placeholder="Enter password"
-						value={signinFormData.password}
+						value={signupFormData.password}
 						onChange={handleChange}
 						required
 					/>
@@ -94,7 +94,7 @@ const SignUp = () => {
 						className="w-full p-2 rounded-md my-2 text-primary"
 						type="password"
 						placeholder="Re-enter password"
-						value={signinFormData.password}
+						value={signupFormData.password}
 						onChange={handleChange}
 						required
 					/>

@@ -250,7 +250,7 @@ class ApplicationsByID(Resource):
         db.session.commit()
 
         response = make_response(
-            '',
+            'item deleted successfully',
             204,
         )
 

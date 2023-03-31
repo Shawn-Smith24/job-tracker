@@ -12,6 +12,17 @@ const ListItem = ({
 	const [company, setCompany] = useState(null);
 	const { companies, setCompanies } = useCompanies();
 	const { jobs, setJobs } = useJobs();
+	function deleteApplication() {
+		fetch(`/applications/${application.id}`, {
+			method: "DELETE",
+		})
+			.then((response) => {
+				console.log(response);
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	}
 
 	function showJobDetails() {
 		let applicationStatus = "";
@@ -58,6 +69,7 @@ const ListItem = ({
 					className="relative flex py-4 border-b border-b-secondary group hover:border-b-accent hover:bg-accent transition cursor-pointer"
 					onClick={(e) => showJobDetails(e)}>
 					<svg
+						onClick={deleteApplication}
 						xmlns="http://www.w3.org/2000/svg"
 						width="20"
 						height="20"
