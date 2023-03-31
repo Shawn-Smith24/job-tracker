@@ -51,7 +51,7 @@ const SignIn = ({ setUserId }) => {
 
 	return (
 		<>
-			<div className="w-full h-full p-8 relative text-info">
+			<div className="w-full drop-shadow-sm h-full p-8 relative text-info">
 				<form
 					onSubmit={handleSignin}
 					className="items-center justify-center flex flex-col w-[500px] h-[550px] p-12 shadow-xl absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 rounded-lg">
