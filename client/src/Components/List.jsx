@@ -6,6 +6,9 @@ export default function List({
 	displayedContent,
 	setExperienceCount,
 }) {
+	function addApplication() {
+		console.log("adding application");
+	}
 	const updateExperienceCount = (experienceLevel) => {
 		if (experienceLevel === "Junior") {
 			setExperienceCount((prevCount) => [
@@ -35,7 +38,7 @@ export default function List({
 				cursor-pointer absolute -right-6 z-50 -mr-1 my-1 text-secondary transition
 				hover:text-info
 				">
-				<Add size="1.5em" />
+				<Add onClick={addApplication} size="1.5em" />
 			</span>
 			<ul>
 				{applications.map((application, id) => (

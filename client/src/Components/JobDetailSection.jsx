@@ -35,7 +35,9 @@ const JobDetailSection = ({ displayedContent, experienceCount }) => {
 					relative my-4
 					lg:my-0">
 					<Edit
-						className="absolute right-0 top-0 text-secondary cursor-pointer"
+						className="
+						transition absolute right-0 top-0 text-secondary cursor-pointer
+						hover:text-info"
 						size="1.25em"
 						onClick={editJobDetail}
 					/>
