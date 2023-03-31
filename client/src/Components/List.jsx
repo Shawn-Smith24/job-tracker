@@ -119,20 +119,20 @@ export default function List({
 							lg:px-12">
 							<form onSubmit={handleSubmit}>
 								<div className="space-y 4">
-									{/* TODO: enter company name */}
+									{/* TODO: companies */}
 									<input
 										className="placeholder-secondary my-2 w-full p-2 border border-secondary rounded"
 										type="text"
-										name="input2"
-										value={formData.input2}
+										name="company_name"
+										value={formData.company_name}
 										onChange={handleChange}
 										placeholder="Enter Name of Company"
 									/>
-									{/* TODO: choose role */}
+									{/* TODO: jobs */}
 									<select
 										className="w-full p-2 border border-secondary rounded"
-										name="input1"
-										value={formData.input1}
+										name="job_name"
+										value={formData.job_name}
 										onChange={handleChange}>
 										<option value="" disabled selected>
 											Choose a role
@@ -143,30 +143,27 @@ export default function List({
 										<option value="UX/UI">UX/UI</option>
 										<option value="Dev-Ops">Dev-Ops</option>
 									</select>
-
-									{/* TODO: enter salary */}
 									<input
 										className="placeholder-secondary my-2 w-full p-2 border border-secondary rounded"
 										type="text"
-										name="input2"
-										value={formData.input2}
+										name="salary"
+										value={formData.salary}
 										onChange={handleChange}
 										placeholder="Enter Salary for this role"
 									/>
-									{/* TODO: enter Location */}
 									<input
 										className="placeholder-secondary mb-2 w-full p-2 border border-secondary rounded"
 										type="text"
-										name="input2"
-										value={formData.input2}
+										name="location"
+										value={formData.location}
 										onChange={handleChange}
 										placeholder="Enter the location for this role"
 									/>
 									{/* TODO: Enter Experience Level */}
 									<select
 										className="placeholder-secondary mb-2 w-full p-2 border border-secondary rounded"
-										name="input3"
-										value={formData.input1}
+										name="experience_level"
+										value={formData.experience_level}
 										onChange={handleChange}>
 										<option value="" disabled selected>
 											Enter Experience Level required for this role
@@ -175,23 +172,11 @@ export default function List({
 										<option value="Mid-Level">Mid-Level</option>
 										<option value="Senior">Senior</option>
 									</select>
-									{/* TODO: Is it remote? */}
-									<select
-										className="placeholder-secondary mb-2 w-full p-2 border border-secondary rounded"
-										name="input1"
-										value={formData.input1}
-										onChange={handleChange}>
-										<option value="" disabled selected>
-											Is this a remote position?
-										</option>
-										<option value="Yes">Yes</option>
-										<option value="No">No</option>
-									</select>
-									{/* TODO: Application Status */}
+									{/* TODO: applications */}
 									<select
 										className="w-full p-2 border border-secondary rounded"
-										name="input1"
-										value={formData.input1}
+										name="status"
+										value={formData.status}
 										onChange={handleChange}>
 										<option value="" disabled selected>
 											Application Status
