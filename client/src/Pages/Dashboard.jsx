@@ -9,6 +9,7 @@ import { useApplications } from "../Components/ContextProviders/ApplicationsCont
 import { useJobs } from "../Components/ContextProviders/JobsContext";
 import { useCompanies } from "../Components/ContextProviders/CompaniesContext";
 import dummyCompanies from "../DummyData/companies.json";
+import { AnimatePresence } from "framer-motion";
 
 const Dashboard = ({ userId }) => {
 	const { showModal } = useContext(ModalContext); // Access showModal from the context
@@ -54,7 +55,9 @@ const Dashboard = ({ userId }) => {
 		<>
 			<div className="w-full h-full flex flex-col">
 				<Navigation />
-				{showModal && <Modal displayedContent={displayedContent} />}{" "}
+				<AnimatePresence mode="wait">
+					{showModal && <Modal displayedContent={displayedContent} />}{" "}
+				</AnimatePresence>
 				{jobs && applications && displayedContent && (
 					<div className="w-full h-full flex flex-row">
 						<div className="w-1/4 h-full shadow-lg border-r border-r-secondary">
