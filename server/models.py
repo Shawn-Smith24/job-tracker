@@ -4,6 +4,7 @@ from sqlalchemy import MetaData
 from sqlalchemy.orm import validates
 from sqlalchemy.ext.associationproxy import association_proxy
 from sqlalchemy_serializer import SerializerMixin
+import re 
 
 from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt()
@@ -41,6 +42,25 @@ class User(db.Model, SerializerMixin):
     def password(self, password):
         self.set_password(password)
 
+    @validates('name')
+    def validate_name(self, key, name):
+        if not name or len(name) < 10:
+            raise ValueError('Name must be at least 10 characters long')
+        
+        return name
+
+    @validates('email')
+    def validate_email(self, key, email):
+        if not email:
+         raise AssertionError('No email provided')
+     
+        if not re.match("[^@]+@[^@]+\.[^@]+", email):
+            
+          raise AssertionError('Provided email is not an email address') 
+      
+        return email
+     
+            
 class Application(db.Model, SerializerMixin):
 
     __tablename__ = 'applications'
