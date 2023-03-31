@@ -18,8 +18,8 @@ function App() {
 				<Router>
 					<Routes>
 						<Route path="/landing" element={<Landing />} />
-						<Route path="/signin" element={<SignIn />} />
-						<Route path="/signup" element={<SignUp />} />
+						<Route path="/signin" element={<SignIn setUserId={setUserId} />} />
+						<Route path="/signup" element={<SignUp setUserId={setUserId} />} />
 						<Route
 							path="/dashboard"
 							element={

@@ -71,9 +71,6 @@ class Job(db.Model, SerializerMixin):
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())
 
     company_id = db.Column(db.Integer, db.ForeignKey('companies.id'))
-
-    # relationships
-    # applications = db.relationship('Application', backref='job')
     company = db.relationship('Company', backref='job')
 
     

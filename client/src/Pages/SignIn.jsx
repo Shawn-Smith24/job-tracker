@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const SignIn = () => {
-	const [isSignIn, setIsSignIn] = useState(true);
+const SignIn = ({ setUserId }) => {
 	const navigate = useNavigate();
 	const [signinFormData, setSigninFormData] = useState({
 		email: "",
@@ -35,7 +34,6 @@ const SignIn = () => {
 		})
 			.then((response) => {
 				if (response.ok) {
-					console.log("Success");
 					navigate("/dashboard", { replace: true });
 					return response.json();
 				} else {
@@ -43,8 +41,8 @@ const SignIn = () => {
 					// [ ] make some sort of flag here
 				}
 			})
-			.then((data) => {
-				console.log(data);
+			.then((user) => {
+				setUserId(user.id);
 			})
 			.catch((error) => {
 				console.error(error);
